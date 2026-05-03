@@ -1,0 +1,306 @@
+/* ============================================================
+   RICK McCAWLEY · IMAGINE A WORLD
+   Brand tokens (locked):
+     Bebas Neue headlines · Inter body
+     Golden Yellow #F2C300 · American Flag Blue #002868
+     Dark 85% Gray #262626 · Sky Blue #5BC0EB · Gator Orange #FA4616
+   ============================================================ */
+:root {
+  --gold: #F2C300;
+  --gold-warm: #E0AE00;
+  --blue-flag: #002868;
+  --blue-deep: #001a4d;
+  --sky: #5BC0EB;
+  --orange: #FA4616;
+  --gray-85: #262626;          /* Dark 85% gray = primary background */
+  --gray-90: #1a1a1a;
+  --gray-card: #2f2f2f;
+  --gray-line: #3a3a3a;
+  --text: #f4f4f4;
+  --text-dim: #b3b3b3;
+  --text-mute: #8a8a8a;
+
+  --font-display: 'Bebas Neue', Impact, 'Arial Narrow Bold', sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  --radius: 14px;
+  --radius-sm: 8px;
+  --maxw: 1200px;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: var(--font-body);
+  background: var(--gray-85);
+  color: var(--text);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+  /* Padding to clear locked top + bottom banners */
+  padding-top: 64px;
+  padding-bottom: 78px;
+}
+img { max-width: 100%; display: block; }
+a { color: var(--sky); text-decoration: none; }
+a:hover { color: var(--gold); }
+
+/* ============================================================
+   TOP BANNER (locked, mirrors bottom)
+   ============================================================ */
+.top-banner, .bottom-banner {
+  position: fixed; left: 0; right: 0;
+  background: rgba(20,20,20,0.92);
+  backdrop-filter: saturate(160%) blur(12px);
+  -webkit-backdrop-filter: saturate(160%) blur(12px);
+  z-index: 100;
+  border-bottom: 2px solid var(--gold);
+}
+.top-banner { top: 0; }
+.bottom-banner {
+  bottom: 0;
+  border-bottom: none;
+  border-top: 2px solid var(--gold);
+}
+.brand-row {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px; padding: 10px 18px;
+}
+.brand-mark {
+  display: inline-flex; align-items: center; gap: 10px;
+  color: var(--text); font-family: var(--font-display); letter-spacing: .04em;
+}
+.brand-rm {
+  display: inline-grid; place-items: center;
+  width: 36px; height: 36px; border-radius: 8px;
+  background: var(--blue-flag); color: var(--gold);
+  font-family: var(--font-display); font-size: 20px; line-height: 1;
+  border: 1.5px solid var(--gold);
+}
+.brand-name { font-size: 20px; }
+.brand-name.small { font-size: 16px; }
+.top-nav, .bot-nav {
+  display: flex; gap: 4px; flex-wrap: wrap; flex: 1; justify-content: center;
+}
+.top-nav a, .bot-nav a {
+  font-family: var(--font-display); letter-spacing: .06em;
+  font-size: 14px; padding: 6px 12px; border-radius: 6px;
+  color: var(--text-dim);
+}
+.top-nav a:hover, .bot-nav a:hover { color: var(--gold); background: rgba(242,195,0,.08); }
+.top-social { display: flex; gap: 6px; align-items: center; }
+.soc {
+  display: inline-grid; place-items: center;
+  width: 32px; height: 32px; border-radius: 50%;
+  background: rgba(255,255,255,.05); color: var(--gold);
+  font-size: 18px; line-height: 1; border: 1px solid var(--gray-line);
+}
+.soc:hover { background: var(--gold); color: var(--gray-90); border-color: var(--gold); }
+.legal {
+  text-align: center; color: var(--text-mute); font-size: 11px;
+  margin: 0 0 8px; padding: 0 18px;
+}
+
+@media (max-width: 720px) {
+  .brand-name { display: none; }
+  .top-nav, .bot-nav { font-size: 12px; gap: 0; }
+  .top-nav a, .bot-nav a { padding: 4px 8px; font-size: 12px; }
+  .top-social { display: none; }
+  body { padding-top: 56px; padding-bottom: 92px; }
+  .legal { font-size: 10px; }
+}
+
+/* ============================================================
+   BIO HERO
+   ============================================================ */
+.bio { padding: 60px 18px 40px; background: linear-gradient(180deg, var(--gray-90) 0%, var(--gray-85) 100%); }
+.bio-wrap {
+  max-width: var(--maxw); margin: 0 auto;
+  display: grid; grid-template-columns: 320px 1fr; gap: 48px; align-items: center;
+}
+.bio-portrait img {
+  width: 100%; aspect-ratio: 1/1; object-fit: cover;
+  border-radius: 50%; border: 3px solid var(--gold);
+  box-shadow: 0 0 0 6px var(--blue-flag), 0 12px 60px rgba(0,40,104,.5);
+}
+.eyebrow {
+  font-family: var(--font-display); letter-spacing: .25em; font-size: 14px;
+  color: var(--gold); margin: 0 0 8px;
+}
+.bio-name {
+  font-family: var(--font-display); font-size: clamp(48px, 8vw, 96px);
+  letter-spacing: .02em; line-height: .95; margin: 0;
+  color: var(--gold);
+}
+.bio-tagline {
+  font-family: var(--font-display); letter-spacing: .08em;
+  font-size: clamp(18px, 2.5vw, 24px); color: var(--sky); margin: 8px 0 16px;
+}
+.bio-titles { display: flex; flex-wrap: wrap; gap: 10px 18px; margin-bottom: 18px; }
+.bio-titles span {
+  font-family: var(--font-display); letter-spacing: .08em; font-size: 14px;
+  color: var(--text); background: rgba(255,255,255,.06);
+  padding: 4px 12px; border-radius: 999px; border: 1px solid var(--gray-line);
+}
+.bio-lead { font-size: 15px; color: var(--text-dim); margin: 10px 0; max-width: 62ch; }
+.bio-lead strong { color: var(--gold); font-weight: 600; }
+
+@media (max-width: 860px) {
+  .bio-wrap { grid-template-columns: 1fr; gap: 24px; text-align: center; }
+  .bio-portrait { max-width: 220px; margin: 0 auto; }
+  .bio-titles { justify-content: center; }
+  .bio-lead { margin-left: auto; margin-right: auto; }
+}
+
+/* ============================================================
+   MISSION STRIP (4 brand blurbs)
+   ============================================================ */
+.missions-strip { padding: 30px 18px; background: var(--gray-90); border-top: 1px solid var(--gray-line); border-bottom: 1px solid var(--gray-line); }
+.missions-wrap {
+  max-width: var(--maxw); margin: 0 auto;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+}
+.mission-card {
+  border: 1px solid var(--gray-line); border-radius: var(--radius-sm);
+  padding: 16px 18px; background: rgba(255,255,255,.02);
+}
+.mission-card h3 {
+  font-family: var(--font-display); letter-spacing: .04em; font-size: 16px;
+  color: var(--gold); margin: 0 0 6px;
+}
+.mission-card p { margin: 0; font-size: 13px; color: var(--text-dim); }
+
+@media (max-width: 900px) {
+  .missions-wrap { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 520px) {
+  .missions-wrap { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   GRID SECTIONS — STAR MISSIONS / ARTS & MEDIA
+   ============================================================ */
+.grid-section { padding: 60px 18px; }
+.grid-header { text-align: center; max-width: var(--maxw); margin: 0 auto 30px; }
+.grid-title {
+  font-family: var(--font-display); letter-spacing: .06em;
+  font-size: clamp(40px, 6vw, 64px); color: var(--gold);
+  margin: 0; line-height: 1;
+}
+.grid-sub { color: var(--text-dim); font-size: 16px; margin: 8px 0 0; }
+
+.tile-grid {
+  max-width: var(--maxw); margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
+}
+@media (max-width: 720px) {
+  .tile-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+}
+@media (max-width: 380px) {
+  .tile-grid { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   TILE — square card with status banner
+   ============================================================ */
+.tile {
+  position: relative; display: block;
+  aspect-ratio: 1/1; overflow: hidden; border-radius: var(--radius);
+  background: var(--gray-card);
+  border: 1px solid var(--gray-line);
+  transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;
+  text-decoration: none; color: inherit;
+}
+.tile:hover {
+  transform: translateY(-4px) scale(1.01);
+  border-color: var(--gold);
+  box-shadow: 0 18px 40px rgba(0,0,0,.5), 0 0 0 1px var(--gold);
+}
+.tile-img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center;
+}
+.tile-img.contain { object-fit: contain; background: var(--gray-90); }
+
+/* Status banner — top of tile */
+.tile-banner {
+  position: absolute; top: 0; left: 0; right: 0;
+  padding: 6px 10px;
+  font-family: var(--font-display); letter-spacing: .12em;
+  font-size: 12px; line-height: 1.1;
+  display: flex; justify-content: space-between; align-items: center; gap: 8px;
+  z-index: 2;
+}
+.tile-banner.live   { background: rgba(0,0,0,.55); color: var(--gold); }
+.tile-banner.beta   { background: var(--orange); color: #000; }
+.tile-banner.date   { background: var(--orange); color: #000; }
+.tile-banner.soon   { background: var(--orange); color: #000; }
+
+.tile-banner .pill {
+  padding: 1px 8px; border-radius: 4px;
+  background: rgba(0,0,0,.25); color: inherit; font-size: 11px;
+}
+.tile-banner.live .pill { background: var(--gold); color: var(--blue-flag); }
+
+/* Title strip — bottom of tile */
+.tile-foot {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(180deg, transparent, rgba(0,0,0,.85) 50%);
+  padding: 38px 12px 10px;
+  z-index: 2;
+}
+.tile-name {
+  font-family: var(--font-display); letter-spacing: .05em;
+  font-size: 17px; color: var(--gold); margin: 0; line-height: 1.05;
+}
+.tile-sub  {
+  font-size: 11px; color: var(--text-dim); margin: 2px 0 0;
+  letter-spacing: .03em;
+}
+
+@media (max-width: 720px) {
+  .tile-name { font-size: 14px; }
+  .tile-sub  { font-size: 10px; }
+  .tile-banner { font-size: 10px; padding: 4px 8px; letter-spacing: .08em; }
+}
+
+/* ============================================================
+   CONTACT
+   ============================================================ */
+.contact { padding: 60px 18px 80px; background: var(--gray-90); border-top: 1px solid var(--gray-line); }
+.contact-wrap { max-width: 720px; margin: 0 auto; text-align: center; }
+.contact-lead { color: var(--text-dim); margin: 8px 0 24px; }
+.contact-buttons { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+.cbtn {
+  font-family: var(--font-display); letter-spacing: .06em; font-size: 15px;
+  padding: 12px 22px; border-radius: 999px;
+  background: var(--blue-flag); color: var(--gold);
+  border: 2px solid var(--gold); transition: all .2s ease;
+}
+.cbtn:hover { background: var(--gold); color: var(--blue-flag); }
+.cbtn.primary { background: var(--gold); color: var(--blue-flag); }
+.cbtn.primary:hover { background: var(--blue-flag); color: var(--gold); }
+.cbtn.small { font-size: 12px; padding: 6px 14px; }
+
+/* ============================================================
+   PLUS TILE — coming soon placeholder
+   ============================================================ */
+.tile-plus {
+  background: repeating-linear-gradient(45deg,
+    rgba(255,255,255,.02) 0 14px,
+    rgba(255,255,255,.05) 14px 28px);
+  border: 2px dashed var(--gold);
+  display: flex; align-items: center; justify-content: center;
+}
+.plus-glyph {
+  font-family: var(--font-display);
+  font-size: clamp(80px, 16vw, 180px);
+  color: var(--gold);
+  line-height: 1;
+  text-shadow: 0 4px 24px rgba(242,195,0,.35);
+  transition: transform .3s ease;
+}
+.tile-plus:hover .plus-glyph { transform: scale(1.08) rotate(90deg); }
