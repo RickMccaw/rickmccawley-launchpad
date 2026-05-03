@@ -556,19 +556,24 @@ body.four-section { padding-bottom: 120px; }
 .hero-section { padding-top: 22px; }
 .hero-row {
   display: grid;
-  grid-template-columns: 280px 1fr 280px;
-  gap: 32px; align-items: center;
+  grid-template-columns: 280px 1fr 340px;
+  gap: 28px; align-items: center;
 }
+/* Portrait — the bio image is already a complete circular composition
+   ("Learn Adapt & Innovate · YOU to the power of ai"), so we DON'T crop
+   it: contain inside a circular frame. */
 .hero-portrait {
   width: 280px; height: 280px;
   border-radius: 50%;
   overflow: hidden;
-  border: 4px solid var(--gold);
-  box-shadow: 0 0 0 6px var(--blue-flag), 0 18px 50px rgba(0,40,104,.45);
-  background: var(--gray-90);
+  border: 3px solid var(--gold);
+  box-shadow: 0 0 0 4px var(--blue-flag), 0 14px 40px rgba(0,40,104,.45);
+  background: #000;
 }
 .hero-portrait img {
-  width: 100%; height: 100%; object-fit: cover; object-position: center 18%;
+  width: 100%; height: 100%;
+  object-fit: contain; object-position: center;
+  display: block;
 }
 .hero-bio { display: flex; flex-direction: column; gap: 8px; }
 .hero-bio .eyebrow {
@@ -589,28 +594,63 @@ body.four-section { padding-bottom: 120px; }
 .hero-lead { color: var(--text-dim); font-size: 14.5px; margin: 4px 0 0; max-width: 60ch; }
 .hero-lead strong { color: var(--gold); font-weight: 600; }
 
+/* AITV card — 16:9 poster on top (NEVER cropped) + caption underneath */
 .hero-aitv {
-  display: block; width: 280px; aspect-ratio: 1/1;
+  display: block; width: 100%; max-width: 340px;
   border-radius: var(--radius);
-  overflow: hidden; position: relative;
-  border: 1px solid var(--gold);
-  box-shadow: 0 18px 50px rgba(0,0,0,.55), 0 0 0 1px rgba(242,195,0,.25);
-  background: #000;
-  transition: transform .3s ease, box-shadow .3s ease;
+  overflow: hidden;
+  border: 1px solid var(--gray-line);
+  background: var(--gray-card);
+  box-shadow: 0 14px 40px rgba(0,0,0,.5);
+  text-decoration: none; color: inherit;
+  transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
 }
-.hero-aitv:hover { transform: translateY(-3px); box-shadow: 0 22px 60px rgba(0,0,0,.7), 0 0 0 2px var(--gold); }
-.hero-aitv img { width: 100%; height: 100%; object-fit: cover; }
+.hero-aitv:hover {
+  transform: translateY(-3px);
+  border-color: var(--gold);
+  box-shadow: 0 18px 50px rgba(0,0,0,.65), 0 0 0 1px var(--gold);
+}
+.hero-aitv-thumb {
+  position: relative;
+  width: 100%; aspect-ratio: 16 / 9;
+  background: #000;        /* letterbox if poster is taller/wider */
+  overflow: hidden;
+}
+.hero-aitv-thumb img {
+  width: 100%; height: 100%;
+  object-fit: cover;       /* poster IS 16:9 (1430×809) so no cropping occurs */
+  object-position: center;
+  display: block;
+}
+.hero-aitv-runtime {
+  position: absolute; right: 8px; bottom: 8px;
+  background: rgba(0,0,0,.85); color: #fff;
+  font-family: var(--font-body); font-size: 11px;
+  padding: 2px 6px; border-radius: 4px; letter-spacing: .02em;
+}
 .hero-aitv-foot {
-  position: absolute; left: 0; right: 0; bottom: 0;
-  background: var(--gray-90);
-  padding: 8px 12px;
+  padding: 12px 14px 14px;
   border-top: 1px solid var(--gray-line);
+  background: var(--gray-card);
+}
+.hero-aitv-eyebrow {
+  font-family: var(--font-display); letter-spacing: .18em;
+  color: var(--text-dim); font-size: 11px;
+  margin: 0 0 4px;
 }
 .hero-aitv-name {
-  font-family: var(--font-display); letter-spacing: .08em;
-  color: var(--gold); font-size: 16px; margin: 0; line-height: 1;
+  font-family: var(--font-display); letter-spacing: .04em;
+  color: var(--gold); font-size: 22px; margin: 0; line-height: 1;
 }
-.hero-aitv-sub { color: var(--text-dim); font-size: 11px; margin: 2px 0 0; }
+.hero-aitv-sub { color: var(--text-dim); font-size: 12.5px; margin: 6px 0 10px; line-height: 1.35; }
+.hero-aitv-cta {
+  display: inline-block;
+  font-family: var(--font-display); letter-spacing: .06em;
+  font-size: 12px; padding: 6px 14px; border-radius: 999px;
+  background: var(--gold); color: var(--blue-flag);
+  border: 2px solid var(--gold);
+}
+.hero-aitv:hover .hero-aitv-cta { background: var(--blue-flag); color: var(--gold); }
 
 /* ===== Section 2 — Two 3x3 icon grids side-by-side ===== */
 .grids-section { padding: 22px 20px; }
@@ -800,9 +840,10 @@ body.four-section { padding-bottom: 120px; }
 
 /* ===== Responsive ===== */
 @media (max-width: 1080px) {
-  .hero-row { grid-template-columns: 220px 1fr 220px; gap: 22px; }
+  .hero-row { grid-template-columns: 220px 1fr 280px; gap: 20px; }
   .hero-portrait { width: 220px; height: 220px; }
-  .hero-aitv { width: 220px; }
+  .hero-aitv { max-width: 280px; }
+  .hero-aitv-name { font-size: 20px; }
   .playlist-row { grid-template-columns: repeat(3, 1fr); }
 }
 @media (max-width: 860px) {
