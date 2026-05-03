@@ -6,7 +6,6 @@
   <meta name="theme-color" content="#262626" />
   <title>Rick McCawley — Imagine a World</title>
   <meta name="description" content="Rick McCawley — Senior Professor of Design, Author, Photographer. CEO of Imagine a World to the Power of AI. Star Missions that change the world. Arts & Media that change the heart." />
-
   <meta property="og:title" content="Rick McCawley — Imagine a World" />
   <meta property="og:description" content="Star Missions that change the world. Arts & Media that change the heart." />
   <meta property="og:image" content="https://www.rickmccawley.com/assets/rick-portrait-jacket.jpg" />
@@ -20,46 +19,89 @@
   <link rel="stylesheet" href="./style.css" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23262626'/%3E%3Ctext x='16' y='23' font-family='Bebas Neue,Impact' font-size='20' fill='%23F2C300' text-anchor='middle' font-weight='700'%3ERM%3C/text%3E%3C/svg%3E" />
 </head>
-<body class="home-grid">
+<body class="four-section">
 
   <!-- ===== TOP BANNER ===== -->
   <header class="top-banner" role="banner">
     <div class="brand-row">
       <a href="/" class="brand-mark" aria-label="Rick McCawley — Home">
         <span class="brand-rm">RM</span>
+        <span class="brand-name">RICK McCAWLEY</span>
       </a>
-      <div class="brand-center">
-        <h1 class="brand-title">RICK McCAWLEY</h1>
-        <p class="brand-sub"><span class="iaw">IMAGINE A WORLD</span> · <span class="tag">SYSTEMS FOR HOPE. STORIES FOR THE SOUL.</span></p>
-      </div>
+      <nav class="top-nav" aria-label="Sections">
+        <a href="#hero">HOME</a>
+        <a href="#missions">STAR MISSIONS</a>
+        <a href="#arts">ARTS &amp; MEDIA</a>
+        <a href="#aitv">AITV STARSHIP</a>
+      </nav>
       <a class="cta-contact" href="#contact">CONTACT RICK →</a>
     </div>
   </header>
 
-  <!-- ===== TWO GRIDS — side by side, above the fold ===== -->
-  <main class="home-main">
-    <section class="grid-col" id="missions">
-      <h2 class="grid-title">STAR MISSIONS</h2>
-      <div class="tile-grid tight" id="star-grid"></div>
-    </section>
-    <section class="grid-col" id="arts">
-      <h2 class="grid-title">ARTS &amp; MEDIA</h2>
-      <div class="tile-grid tight" id="arts-grid"></div>
-    </section>
-  </main>
+  <!-- ===== SECTION 1 — HERO: portrait | bio | AITV square ===== -->
+  <section class="page-section hero-section" id="hero">
+    <h1 class="section-name">RICK McCAWLEY</h1>
+    <div class="hero-row">
+      <!-- LEFT: round portrait -->
+      <div class="hero-portrait">
+        <img src="./assets/rick-portrait-jacket.jpg" alt="Rick McCawley portrait" />
+      </div>
 
-  <!-- ===== CONTACT RICK (anchored under grids) ===== -->
-  <section class="contact-block" id="contact">
+      <!-- MIDDLE: bio + Imagine a World text -->
+      <div class="hero-bio">
+        <p class="eyebrow">IMAGINE A WORLD · TO THE POWER OF AI</p>
+        <p class="hero-tag">SYSTEMS FOR HOPE. STORIES FOR THE SOUL.</p>
+        <div class="hero-titles">
+          <span>Senior Professor of Design</span>
+          <span>Author</span>
+          <span>Photographer</span>
+          <span>CEO · Imagine a World, LLC</span>
+        </div>
+        <p class="hero-lead">
+          Rick McCawley builds <strong>Star Missions</strong> that change the world and
+          <strong>Arts &amp; Media</strong> that change the heart — a portfolio of
+          18 projects, all powered by AI in service of human imagination.
+        </p>
+      </div>
+
+      <!-- RIGHT: AITV Starship square -->
+      <a class="hero-aitv" href="#aitv" aria-label="AITV Starship">
+        <img src="./assets/aitv-starship.jpg" alt="AITV Starship" />
+        <div class="hero-aitv-foot">
+          <p class="hero-aitv-name">AITV STARSHIP</p>
+          <p class="hero-aitv-sub">Live · Episodes · Playlists</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 2 — TWO 3x3 GRIDS: STAR MISSIONS · ARTS & MEDIA ===== -->
+  <section class="page-section grids-section" id="grids">
+    <div class="grids-row">
+      <div class="grid-col" id="missions">
+        <h2 class="grid-title">STAR MISSIONS</h2>
+        <div class="tile-grid icon-grid" id="star-grid"></div>
+      </div>
+      <div class="grid-col" id="arts">
+        <h2 class="grid-title">ARTS &amp; MEDIA</h2>
+        <div class="tile-grid icon-grid" id="arts-grid"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 3 — CONTACT RICK ===== -->
+  <section class="page-section contact-section" id="contact">
+    <h2 class="section-title">CONTACT RICK</h2>
     <div class="contact-row">
       <div class="contact-cell">
-        <h3 class="cell-title">CONTACT RICK</h3>
+        <h3 class="cell-title">DIRECT</h3>
         <a class="email-line" href="mailto:ricktheaiguy@gmail.com">ricktheaiguy@gmail.com</a>
         <div class="socials">
-          <a href="https://www.linkedin.com/in/rickmccawley" target="_blank" rel="noopener" aria-label="LinkedIn" class="soc-pill">in <span>LinkedIn</span></a>
-          <a href="https://www.youtube.com/@rmccawley" target="_blank" rel="noopener" aria-label="YouTube" class="soc-pill">▶ <span>YouTube</span></a>
-          <a href="https://www.facebook.com/rickmccawley" target="_blank" rel="noopener" aria-label="Facebook" class="soc-pill">f <span>Facebook</span></a>
-          <a href="https://ideogram.ai/profile/rmccawley" target="_blank" rel="noopener" aria-label="Ideogram" class="soc-pill">◆ <span>Ideogram</span></a>
-          <a href="https://x.com/rmccawley" target="_blank" rel="noopener" aria-label="X" class="soc-pill">𝕏 <span>X</span></a>
+          <a href="https://www.linkedin.com/in/rickmccawley" target="_blank" rel="noopener" class="soc-pill">in <span>LinkedIn</span></a>
+          <a href="https://www.youtube.com/@rmccawley" target="_blank" rel="noopener" class="soc-pill">▶ <span>YouTube</span></a>
+          <a href="https://www.facebook.com/rickmccawley" target="_blank" rel="noopener" class="soc-pill">f <span>Facebook</span></a>
+          <a href="https://ideogram.ai/profile/rmccawley" target="_blank" rel="noopener" class="soc-pill">◆ <span>Ideogram</span></a>
+          <a href="https://x.com/rmccawley" target="_blank" rel="noopener" class="soc-pill">𝕏 <span>X</span></a>
         </div>
       </div>
       <div class="contact-cell">
@@ -77,39 +119,69 @@
     </div>
   </section>
 
+  <!-- ===== SECTION 4 — AITV STARSHIP: playlists from YouTube ===== -->
+  <section class="page-section aitv-section" id="aitv">
+    <div class="aitv-head">
+      <h2 class="section-title">AITV STARSHIP</h2>
+      <p class="section-sub">Live broadcasts · episodes · playlists — direct from YouTube</p>
+      <div class="aitv-cta-row">
+        <a class="cbtn youtube" href="https://www.youtube.com/@rmccawley?sub_confirmation=1" target="_blank" rel="noopener">▶ SUBSCRIBE</a>
+        <a class="cbtn ghost" href="https://www.youtube.com/@rmccawley/streams" target="_blank" rel="noopener">WATCH LIVE</a>
+        <a class="cbtn ghost" href="https://www.youtube.com/@rmccawley/playlists" target="_blank" rel="noopener">ALL PLAYLISTS</a>
+      </div>
+    </div>
+    <div class="playlist-row">
+      <a class="playlist-card" href="https://www.youtube.com/@rmccawley/streams" target="_blank" rel="noopener">
+        <div class="playlist-thumb live">
+          <span class="live-dot">●</span> LIVE
+        </div>
+        <p class="pl-title">LIVE BROADCASTS</p>
+        <p class="pl-sub">Studio · field · special events</p>
+      </a>
+      <a class="playlist-card" href="https://www.youtube.com/@rmccawley/videos" target="_blank" rel="noopener">
+        <div class="playlist-thumb thumb-1"></div>
+        <p class="pl-title">EPISODES</p>
+        <p class="pl-sub">Full-length conversations</p>
+      </a>
+      <a class="playlist-card" href="https://www.youtube.com/@rmccawley/videos" target="_blank" rel="noopener">
+        <div class="playlist-thumb thumb-2"></div>
+        <p class="pl-title">SHORTS</p>
+        <p class="pl-sub">Quick takes · 60 sec</p>
+      </a>
+      <a class="playlist-card" href="https://www.youtube.com/@rmccawley/videos" target="_blank" rel="noopener">
+        <div class="playlist-thumb thumb-3"></div>
+        <p class="pl-title">MISSION DROPS</p>
+        <p class="pl-sub">Project launches</p>
+      </a>
+      <a class="playlist-card" href="https://www.youtube.com/@rmccawley/videos" target="_blank" rel="noopener">
+        <div class="playlist-thumb thumb-4"></div>
+        <p class="pl-title">ARTS &amp; MEDIA</p>
+        <p class="pl-sub">Music · film · books</p>
+      </a>
+      <a class="playlist-card" href="https://www.youtube.com/@rmccawley/playlists" target="_blank" rel="noopener">
+        <div class="playlist-thumb thumb-all">▶</div>
+        <p class="pl-title">ALL PLAYLISTS</p>
+        <p class="pl-sub">View on YouTube</p>
+      </a>
+    </div>
+  </section>
+
   <!-- ===== BOTTOM BANNER ===== -->
   <footer class="bottom-banner" role="contentinfo">
     <div class="brand-row">
-      <a href="/" class="brand-mark"><span class="brand-rm">RM</span></a>
-      <p class="legal">© 2026 Imagine a World to the Power of AI, LLC · Star Missions · Arts &amp; Media · AITV Starship</p>
-      <a class="cbtn small" href="/aitv/">AITV STARSHIP ▶</a>
+      <a href="/" class="brand-mark"><span class="brand-rm">RM</span><span class="brand-name small">RICK McCAWLEY</span></a>
+      <nav class="bot-nav" aria-label="Sections">
+        <a href="#hero">HOME</a>
+        <a href="#missions">MISSIONS</a>
+        <a href="#arts">ARTS</a>
+        <a href="#aitv">AITV</a>
+        <a href="#contact">CONTACT</a>
+      </nav>
+      <a class="cbtn small" href="mailto:ricktheaiguy@gmail.com">EMAIL RICK →</a>
     </div>
+    <p class="legal">© 2026 Imagine a World to the Power of AI, LLC · ricktheaiguy@gmail.com</p>
   </footer>
 
-  <!-- ===== CHAT BUBBLE (lower-right) ===== -->
-  <button class="chat-bubble" id="chatBubble" aria-label="Chat with Rick's AI" type="button">
-    <span class="chat-icon">💬</span>
-    <span class="chat-label">Ask Rick AI</span>
-  </button>
-  <div class="chat-panel" id="chatPanel" hidden>
-    <div class="chat-head">
-      <strong>Rick AI</strong>
-      <button class="chat-close" id="chatClose" aria-label="Close chat" type="button">×</button>
-    </div>
-    <div class="chat-body">
-      <p>Hi — I'm Rick's AI helper. Ask me about Star Missions, booking, or how to get involved.</p>
-      <p class="chat-hint">For now: <a href="mailto:ricktheaiguy@gmail.com">email Rick directly</a> and we'll wire me up shortly.</p>
-    </div>
-  </div>
-
   <script src="./tiles.js"></script>
-  <script>
-    // Chat bubble toggle
-    const cb = document.getElementById('chatBubble');
-    const cp = document.getElementById('chatPanel');
-    const cc = document.getElementById('chatClose');
-    cb && cb.addEventListener('click', () => { cp.hidden = !cp.hidden; });
-    cc && cc.addEventListener('click', () => { cp.hidden = true; });
-  </script>
 </body>
 </html>

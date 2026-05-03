@@ -61,10 +61,39 @@ function tileHTML(item) {
     </a>`;
 }
 
+/* iPhone-style rounded-corner icon: square art + title underneath
+   Used by the home page (.icon-grid). Sub-pages still use tileHTML. */
+function iconTileHTML(item) {
+  if (item.status === 'plus') {
+    return `
+      <a class="icon-tile icon-plus" href="#contact" aria-label="Coming soon — pitch a new project">
+        <div class="icon-art icon-art-plus" aria-hidden="true"><span class="plus-glyph-sm">+</span></div>
+        <p class="icon-title">${item.name}</p>
+        <p class="icon-sub">${item.sub}</p>
+      </a>`;
+  }
+  const statusPill =
+    item.status === 'live' ? `<span class="icon-pill live">LIVE</span>` :
+    item.status === 'beta' ? `<span class="icon-pill">BETA</span>` :
+    item.status === 'date' ? `<span class="icon-pill">${item.dateText || 'TBA'}</span>` :
+    `<span class="icon-pill">SOON</span>`;
+  return `
+    <a class="icon-tile" href="/${item.slug}/" aria-label="${item.name}">
+      <div class="icon-art">
+        <img src="${item.img}" alt="${item.name}" loading="lazy" />
+        ${statusPill}
+      </div>
+      <p class="icon-title">${item.name}</p>
+      <p class="icon-sub">${item.sub}</p>
+    </a>`;
+}
+
 function renderGrid(elId, items) {
   const el = document.getElementById(elId);
   if (!el) return;
-  el.innerHTML = items.map(tileHTML).join('');
+  const useIcon = el.classList.contains('icon-grid');
+  const fn = useIcon ? iconTileHTML : tileHTML;
+  el.innerHTML = items.map(fn).join('');
 }
 
 document.addEventListener('DOMContentLoaded', () => {
