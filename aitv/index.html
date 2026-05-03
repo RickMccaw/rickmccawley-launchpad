@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#000000" />
+  <title>AITV Starship — Rick McCawley's Channel</title>
+  <meta name="description" content="AITV Starship — the flagship YouTube channel of Rick McCawley. Live broadcasts, episodes with Brandon Tidd, and human-centered AI conversations." />
+  <meta property="og:title" content="AITV Starship — Rick McCawley" />
+  <meta property="og:description" content="The flagship YouTube channel of Rick McCawley. Publicity for the entire empire." />
+  <meta property="og:image" content="https://www.rickmccawley.com/assets/aitv-starship.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="stylesheet" href="/sub.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23000'/%3E%3Ctext x='16' y='23' font-family='Bebas Neue,Impact' font-size='14' fill='%23F2C300' text-anchor='middle' font-weight='700'%3EAITV%3C/text%3E%3C/svg%3E" />
+  <style>
+    /* AITV-specific accent: deeper space backdrop */
+    body.sub-page.aitv-body { background: linear-gradient(180deg, #000 0%, #0a1530 50%, #000 100%); }
+    .aitv-channel-hero {
+      max-width: var(--maxw); margin: 0 auto;
+      padding: 30px 18px 12px;
+      display: grid; grid-template-columns: 1.1fr 1fr; gap: 28px;
+      align-items: center;
+    }
+    .aitv-cover {
+      position: relative; aspect-ratio: 16/9;
+      border-radius: var(--radius); overflow: hidden;
+      border: 1px solid var(--gold);
+      box-shadow: 0 18px 50px rgba(0,0,0,.5), 0 0 0 1px rgba(242,195,0,.25);
+    }
+    .aitv-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .live-badge {
+      position: absolute; top: 14px; left: 14px;
+      background: #d31027; color: #fff;
+      font-family: var(--font-display); letter-spacing: .14em;
+      padding: 6px 12px; border-radius: 4px; font-size: 13px;
+      box-shadow: 0 4px 16px rgba(211,16,39,.5);
+    }
+    .live-badge::before {
+      content: '●'; margin-right: 6px;
+      animation: blink 1.4s infinite;
+    }
+    @keyframes blink { 0%,49%{opacity:1} 50%,100%{opacity:.3} }
+    .aitv-intro h1 {
+      font-family: var(--font-display); letter-spacing: .04em;
+      font-size: clamp(48px, 7vw, 86px); color: var(--gold);
+      margin: 0 0 6px; line-height: .95;
+    }
+    .aitv-intro .tagline {
+      font-family: var(--font-display); letter-spacing: .08em;
+      color: var(--sky); font-size: clamp(18px, 2.2vw, 24px);
+      margin: 0 0 14px;
+    }
+    .aitv-intro p { color: var(--text-dim); font-size: 15px; line-height: 1.55; margin: 8px 0; }
+    .aitv-stats {
+      display: flex; flex-wrap: wrap; gap: 10px 22px; margin: 14px 0 16px;
+    }
+    .aitv-stat {
+      font-family: var(--font-display); letter-spacing: .06em;
+      color: var(--gold); font-size: 14px;
+      padding: 6px 12px; border-radius: 999px;
+      border: 1px solid rgba(242,195,0,.4); background: rgba(0,0,0,.3);
+    }
+    .aitv-cta-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
+    .cbtn.youtube { background: #ff0033; color: #fff; border-color: #ff0033; }
+    .cbtn.youtube:hover { background: #fff; color: #ff0033; }
+
+    .aitv-section {
+      max-width: var(--maxw); margin: 32px auto;
+      padding: 0 18px;
+    }
+    .aitv-section-title {
+      font-family: var(--font-display); letter-spacing: .1em;
+      color: var(--gold); font-size: clamp(28px, 3.5vw, 40px);
+      margin: 0 0 16px; text-align: left;
+      border-bottom: 2px solid rgba(242,195,0,.35);
+      padding-bottom: 10px;
+    }
+    .aitv-embed {
+      position: relative; aspect-ratio: 16/9; width: 100%;
+      border-radius: var(--radius); overflow: hidden;
+      border: 1px solid var(--gray-line);
+      background: #000;
+    }
+    .aitv-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+    .ep-grid {
+      display: grid; gap: 18px;
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .ep-card {
+      background: var(--gray-card); border: 1px solid var(--gray-line);
+      border-radius: var(--radius); overflow: hidden;
+      display: flex; flex-direction: column;
+      text-decoration: none; color: inherit;
+      transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+    }
+    .ep-card:hover { transform: translateY(-3px); border-color: var(--gold);
+      box-shadow: 0 14px 32px rgba(0,0,0,.45); }
+    .ep-thumb {
+      position: relative; aspect-ratio: 16/9; background: #000;
+      overflow: hidden;
+    }
+    .ep-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .ep-duration {
+      position: absolute; right: 8px; bottom: 8px;
+      background: rgba(0,0,0,.85); color: #fff;
+      font-size: 12px; font-weight: 600; padding: 2px 6px; border-radius: 3px;
+    }
+    .ep-body { padding: 12px 14px 16px; flex: 1; display: flex; flex-direction: column; }
+    .ep-title {
+      font-family: var(--font-display); letter-spacing: .04em;
+      color: var(--gold); margin: 0 0 6px; font-size: 16px; line-height: 1.2;
+    }
+    .ep-meta { color: var(--text-dim); font-size: 12px; margin: 0; }
+
+    .aitv-mission {
+      background: rgba(0,0,0,.5);
+      border: 1px solid var(--gold);
+      border-radius: var(--radius);
+      padding: 28px;
+      margin: 32px auto;
+      max-width: 920px; text-align: center;
+    }
+    .aitv-mission h2 {
+      font-family: var(--font-display); letter-spacing: .1em;
+      color: var(--gold); font-size: 30px; margin: 0 0 12px;
+    }
+    .aitv-mission p {
+      color: var(--text); font-size: 17px; line-height: 1.6;
+      margin: 0; max-width: 64ch; margin-left: auto; margin-right: auto;
+    }
+
+    @media (max-width: 900px) {
+      .aitv-channel-hero { grid-template-columns: 1fr; gap: 18px; }
+      .ep-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 540px) {
+      .ep-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body class="sub-page aitv-body">
+
+  <!-- ===== TOP BANNER ===== -->
+  <header class="top-banner" role="banner">
+    <div class="brand-row">
+      <a href="/" class="brand-mark" aria-label="Rick McCawley — Home">
+        <span class="brand-rm">RM</span>
+        <span class="brand-name">RICK McCAWLEY</span>
+      </a>
+      <nav class="top-nav" aria-label="Primary">
+        <a href="/">HOME</a>
+        <a href="/#missions">MISSIONS</a>
+        <a href="/#arts">ARTS &amp; MEDIA</a>
+        <a href="/aitv/" aria-current="page">AITV STARSHIP</a>
+        <a href="/#contact">CONTACT RICK</a>
+      </nav>
+      <div class="top-social" aria-label="Social">
+        <a href="https://bit.ly/m/RickMcCawley" target="_blank" rel="noopener" aria-label="Linktree" class="soc">⊕</a>
+        <a href="https://www.youtube.com/@rmccawley" target="_blank" rel="noopener" aria-label="YouTube" class="soc">▶</a>
+        <a href="mailto:ricktheaiguy@gmail.com" aria-label="Email" class="soc">✉</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== BACK BAR ===== -->
+  <div class="back-bar">
+    <div class="back-wrap">
+      <a class="back-btn" href="/">← HOME</a>
+      <span class="crumb">RICK McCAWLEY · <strong>AITV STARSHIP</strong></span>
+    </div>
+  </div>
+
+  <!-- ===== CHANNEL HERO ===== -->
+  <section class="aitv-channel-hero">
+    <div class="aitv-cover">
+      <span class="live-badge">LIVE BROADCAST</span>
+      <img src="/assets/aitv-starship.jpg" alt="AITV Starship — Rick McCawley & Brandon Tidd" />
+    </div>
+    <div class="aitv-intro">
+      <p class="eyebrow gold">The Flagship Channel</p>
+      <h1>AITV STARSHIP</h1>
+      <p class="tagline">Witness · Wisdom · Wonder · Work</p>
+      <p>The publicity engine for the entire empire — Rick McCawley and Brandon Tidd broadcast live conversations on human-centered AI, education, marine science, disaster relief, and the arts. Episodes drop weekly across the 18 ecosystems.</p>
+      <div class="aitv-stats">
+        <span class="aitv-stat">648 SUBSCRIBERS</span>
+        <span class="aitv-stat">529 VIDEOS</span>
+        <span class="aitv-stat">@rmccawley</span>
+      </div>
+      <div class="aitv-cta-row">
+        <a class="cbtn youtube" href="https://www.youtube.com/@rmccawley?sub_confirmation=1" target="_blank" rel="noopener">▶ SUBSCRIBE ON YOUTUBE</a>
+        <a class="cbtn" href="https://www.youtube.com/@rmccawley/streams" target="_blank" rel="noopener">WATCH LIVE</a>
+        <a class="cbtn" href="https://www.youtube.com/@rmccawley/playlists" target="_blank" rel="noopener">PLAYLISTS</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LATEST EPISODE EMBED ===== -->
+  <section class="aitv-section">
+    <h2 class="aitv-section-title">LATEST FROM THE STARSHIP</h2>
+    <div class="aitv-embed">
+      <iframe
+        src="https://www.youtube.com/embed/videoseries?list=UULFrmccawley"
+        title="AITV Starship — Latest Videos"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <!-- ===== EPISODE QUICK LINKS ===== -->
+  <section class="aitv-section">
+    <h2 class="aitv-section-title">RECENT EPISODES</h2>
+    <div class="ep-grid">
+      <a class="ep-card" href="https://www.youtube.com/@rmccawley/streams" target="_blank" rel="noopener">
+        <div class="ep-thumb">
+          <img src="/assets/aitv-starship.jpg" alt="AITV Starship LIVE" />
+          <span class="ep-duration">2:01:09</span>
+        </div>
+        <div class="ep-body">
+          <h3 class="ep-title">AITV Starship LIVE</h3>
+          <p class="ep-meta">Streamed live · Rick &amp; Brandon</p>
+        </div>
+      </a>
+      <a class="ep-card" href="https://www.youtube.com/@rmccawley/videos" target="_blank" rel="noopener">
+        <div class="ep-thumb">
+          <img src="/assets/aitv-starship.jpg" alt="Hacking the Future of Enterprise Employment with UpSkill USA" />
+          <span class="ep-duration">1:48:22</span>
+        </div>
+        <div class="ep-body">
+          <h3 class="ep-title">Episode 035 — UpSkill USA</h3>
+          <p class="ep-meta">Hacking the future of enterprise employment</p>
+        </div>
+      </a>
+      <a class="ep-card" href="https://www.youtube.com/@rmccawley/videos" target="_blank" rel="noopener">
+        <div class="ep-thumb">
+          <img src="/assets/aitv-starship.jpg" alt="Mackerels, Mission Tools and Moonshots" />
+          <span class="ep-duration">1:44:08</span>
+        </div>
+        <div class="ep-body">
+          <h3 class="ep-title">Episode 034 — Mackerels &amp; Moonshots</h3>
+          <p class="ep-meta">Mission Tools and big-thinking projects</p>
+        </div>
+      </a>
+      <a class="ep-card" href="https://www.youtube.com/@rmccawley/videos" target="_blank" rel="noopener">
+        <div class="ep-thumb">
+          <img src="/assets/aitv-starship.jpg" alt="The Greatest Show On Earth" />
+          <span class="ep-duration">1:50:55</span>
+        </div>
+        <div class="ep-body">
+          <h3 class="ep-title">Episode 033 — Greatest Show On Earth</h3>
+          <p class="ep-meta">Circus USA storyworld + cultural force</p>
+        </div>
+      </a>
+      <a class="ep-card" href="https://www.youtube.com/@rmccawley/videos" target="_blank" rel="noopener">
+        <div class="ep-thumb">
+          <img src="/assets/aitv-starship.jpg" alt="Decoding the Deep" />
+          <span class="ep-duration">23:16</span>
+        </div>
+        <div class="ep-body">
+          <h3 class="ep-title">Decoding the Deep</h3>
+          <p class="ep-meta">Geospatial AI &amp; mission tools for marine science</p>
+        </div>
+      </a>
+      <a class="ep-card" href="https://www.youtube.com/@rmccawley/videos" target="_blank" rel="noopener">
+        <div class="ep-thumb">
+          <img src="/assets/aitv-starship.jpg" alt="Moonshots — projects that become legacy" />
+          <span class="ep-duration">31:42</span>
+        </div>
+        <div class="ep-body">
+          <h3 class="ep-title">Moonshots</h3>
+          <p class="ep-meta">The projects that become your legacy</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== MISSION ===== -->
+  <section class="aitv-section">
+    <div class="aitv-mission">
+      <h2>BE THE VERB. LIGHT THE WAY.</h2>
+      <p>AITV Starship is the public face of Imagine a World — a live broadcast on human-centered AI for educators, leaders, creatives, and the next seven generations. Tune in, light a torch, and pass it on.</p>
+    </div>
+  </section>
+
+  <!-- ===== BOTTOM BANNER (mirrors top) ===== -->
+  <footer class="bottom-banner" role="contentinfo">
+    <div class="brand-row">
+      <a href="/" class="brand-mark"><span class="brand-rm">RM</span><span class="brand-name small">RICK McCAWLEY</span></a>
+      <nav class="bot-nav" aria-label="Footer">
+        <a href="/">HOME</a>
+        <a href="/#missions">MISSIONS</a>
+        <a href="/#arts">ARTS &amp; MEDIA</a>
+        <a href="/aitv/">AITV STARSHIP</a>
+        <a href="/#contact">CONTACT RICK</a>
+      </nav>
+      <div class="top-social" aria-label="Social">
+        <a href="https://bit.ly/m/RickMcCawley" target="_blank" rel="noopener" class="soc">⊕</a>
+        <a href="https://www.youtube.com/@rmccawley" target="_blank" rel="noopener" class="soc">▶</a>
+        <a href="mailto:ricktheaiguy@gmail.com" class="soc">✉</a>
+      </div>
+    </div>
+    <p class="legal">© 2026 Imagine a World to the Power of AI, LLC · AITV Starship</p>
+  </footer>
+</body>
+</html>
