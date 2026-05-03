@@ -1,0 +1,164 @@
+/* ===== REEF REIMAGINED — sub-page extra styles ===== */
+
+/* Section spacing */
+.reef-stats, .reef-about, .reef-features, .reef-partners, .reef-how {
+  padding: 56px 24px;
+}
+.reef-stats-wrap, .reef-about-wrap, .reef-features-wrap, .reef-partners-wrap, .reef-how-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ===== STATS ROW ===== */
+.reef-stats {
+  background: linear-gradient(180deg, rgba(91,192,235,0.06) 0%, rgba(91,192,235,0.02) 100%);
+  border-top: 1px solid rgba(91,192,235,0.15);
+  border-bottom: 1px solid rgba(91,192,235,0.15);
+}
+.reef-stats-wrap {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+.stat-card {
+  text-align: center;
+  padding: 22px 14px;
+  background: rgba(255,255,255,.03);
+  border: 1px solid var(--gray-line);
+  border-radius: 10px;
+}
+.stat-num {
+  font-family: var(--font-display);
+  font-size: 52px;
+  line-height: 1;
+  color: var(--gold);
+  letter-spacing: .02em;
+}
+.stat-label {
+  margin-top: 8px;
+  font-size: 13px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+
+/* ===== ABOUT ===== */
+.reef-about-wrap { max-width: 880px; }
+.reef-about .eyebrow {
+  color: var(--sky);
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  font-size: 12px;
+  margin: 0 0 8px;
+}
+.reef-lead {
+  font-size: 18px;
+  line-height: 1.65;
+  color: var(--text);
+  margin: 0 0 16px;
+}
+.reef-lead strong { color: var(--gold); }
+
+/* ===== FEATURE GRID ===== */
+.feat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 22px;
+}
+.feat-card {
+  background: rgba(255,255,255,.04);
+  border: 1px solid var(--gray-line);
+  border-radius: 12px;
+  padding: 22px;
+  transition: all .2s ease;
+}
+.feat-card:hover {
+  border-color: var(--sky);
+  background: rgba(91,192,235,.06);
+  transform: translateY(-2px);
+}
+.feat-icon {
+  font-size: 32px;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+.feat-card h3 {
+  font-family: var(--font-display);
+  letter-spacing: .04em;
+  font-size: 22px;
+  color: var(--gold);
+  margin: 0 0 6px;
+}
+.feat-card p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--text-dim);
+}
+
+/* ===== PARTNERS ===== */
+.reef-partners .eyebrow {
+  color: var(--sky);
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  font-size: 12px;
+  margin: 0 0 8px;
+}
+
+/* ===== HOW IT WORKS ===== */
+.how-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 22px;
+}
+.how-step {
+  background: rgba(255,255,255,.03);
+  border: 1px solid var(--gray-line);
+  border-radius: 12px;
+  padding: 22px 18px;
+  text-align: center;
+}
+.how-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--gold);
+  color: var(--gray-90);
+  font-family: var(--font-display);
+  font-size: 26px;
+  margin: 0 auto 12px;
+}
+.how-step h4 {
+  font-family: var(--font-display);
+  letter-spacing: .04em;
+  font-size: 20px;
+  color: var(--sky);
+  margin: 0 0 8px;
+}
+.how-step p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--text-dim);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 980px) {
+  .feat-grid { grid-template-columns: repeat(2, 1fr); }
+  .how-grid  { grid-template-columns: repeat(2, 1fr); }
+  .reef-stats-wrap { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .reef-stats, .reef-about, .reef-features, .reef-partners, .reef-how { padding: 40px 16px; }
+  .feat-grid { grid-template-columns: 1fr; }
+  .how-grid  { grid-template-columns: 1fr; }
+  .reef-stats-wrap { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .stat-num { font-size: 40px; }
+}
