@@ -225,19 +225,20 @@ a:hover { color: var(--gold); }
 }
 .tile-img.contain { object-fit: contain; background: var(--gray-90); }
 
-/* Status banner — top of tile */
+/* Status banner — BOTTOM of tile, dark 90% bar */
 .tile-banner {
-  position: absolute; top: 0; left: 0; right: 0;
+  position: absolute; left: 0; right: 0; bottom: 0;
   padding: 6px 10px;
   font-family: var(--font-display); letter-spacing: .12em;
   font-size: 12px; line-height: 1.1;
   display: flex; justify-content: space-between; align-items: center; gap: 8px;
   z-index: 2;
 }
-.tile-banner.live   { background: rgba(0,0,0,.55); color: var(--gold); }
-.tile-banner.beta   { background: var(--orange); color: #000; }
-.tile-banner.date   { background: var(--orange); color: #000; }
-.tile-banner.soon   { background: var(--orange); color: #000; }
+/* All status banners now use dark 90% gray bar with gold text */
+.tile-banner.live   { background: var(--gray-90); color: var(--gold); }
+.tile-banner.beta   { background: var(--gray-90); color: var(--gold); }
+.tile-banner.date   { background: var(--gray-90); color: var(--gold); }
+.tile-banner.soon   { background: var(--gray-90); color: var(--gold); }
 
 .tile-banner .pill {
   padding: 1px 8px; border-radius: 4px;
@@ -245,11 +246,11 @@ a:hover { color: var(--gold); }
 }
 .tile-banner.live .pill { background: var(--gold); color: var(--blue-flag); }
 
-/* Title strip — bottom of tile */
+/* Title strip — sits ABOVE the status bar at bottom */
 .tile-foot {
-  position: absolute; left: 0; right: 0; bottom: 0;
+  position: absolute; left: 0; right: 0; bottom: 28px;
   background: linear-gradient(180deg, transparent, rgba(0,0,0,.85) 50%);
-  padding: 38px 12px 10px;
+  padding: 38px 12px 8px;
   z-index: 2;
 }
 .tile-name {
@@ -727,8 +728,8 @@ body.home-grid .bottom-banner .legal { margin: 0; text-align: center; padding: 0
 
 /* Override default .tile-banner so logos read clearly */
 .tile-grid.tight .tile { aspect-ratio: 1/1; }
-.tile-grid.tight .tile-banner { font-size: 9px; padding: 3px 6px; letter-spacing: .06em; }
+.tile-grid.tight .tile-banner { font-size: 9px; padding: 4px 8px; letter-spacing: .06em; }
 .tile-grid.tight .tile-banner .pill { font-size: 9px; padding: 0 5px; }
-.tile-grid.tight .tile-foot { padding: 28px 8px 6px; }
+.tile-grid.tight .tile-foot { bottom: 22px; padding: 28px 8px 6px; }
 .tile-grid.tight .tile-name { font-size: 13px; }
 .tile-grid.tight .tile-sub { font-size: 9.5px; }
