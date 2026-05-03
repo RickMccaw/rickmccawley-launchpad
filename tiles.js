@@ -11,7 +11,7 @@ const STAR_MISSIONS = [
   { slug: 'LifeForce',     name: 'LifeForce One',        sub: 'Health · LiV IT!',          img: 'tiles/lifeforce.jpg',     status: 'soon' },
   { slug: 'Rocketship',    name: 'Rocketship for the Mind', sub: 'STEM education',         img: 'tiles/rocketship.jpg',    status: 'soon' },
   { slug: 'CARE',          name: 'CARE',                 sub: 'Disability support app',    img: 'tiles/care.jpg',          status: 'soon' },
-  { slug: 'EDU',           name: 'EDU.ai',               sub: 'Learn · Adapt · Innovate',  img: 'tiles/edu.jpg',           status: 'live' },
+  { slug: 'notebooklm',    name: 'NoteBookLM',           sub: 'Learn · Adapt · Innovate',  img: 'tiles/notebooklm.jpg',    status: 'live' },
   { slug: 'Imagine',       name: 'Imagine Nation',       sub: 'Civic imagination',         img: 'tiles/imaginenation.jpg', status: 'soon' },
 ];
 

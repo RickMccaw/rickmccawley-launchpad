@@ -122,10 +122,15 @@
       <!-- iOS-style monthly calendar + upcoming events -->
       <div class="contact-cell calendar-cell">
         <div class="cal-head">
-          <h3 class="cell-title">MAY 2026</h3>
-          <a class="cal-today" href="mailto:ricktheaiguy@gmail.com?subject=Booking%20Inquiry">BOOK →</a>
+          <h3 class="cell-title">MAY 2026 · BOOKING</h3>
+          <a class="cal-today" href="mailto:ricktheaiguy@gmail.com?subject=Custom%20Booking%20Inquiry">CUSTOM →</a>
         </div>
-        <div class="cal-grid" id="calGrid" aria-label="May 2026 calendar"></div>
+        <div class="cal-grid" id="calGrid" aria-label="May 2026 booking calendar"></div>
+        <div class="cal-legend" aria-hidden="true">
+          <span class="lg sky"><span class="swatch"></span>Office Hours · click to join Zoom</span>
+          <span class="lg red"><span class="swatch"></span>Booked</span>
+          <span class="lg orange"><span class="swatch"></span>Today</span>
+        </div>
         <ul class="event-list">
           <li class="event red">
             <span class="ev-bar"></span>
@@ -150,6 +155,14 @@
               <p class="ev-loc">YouTube · Every Thursday</p>
             </div>
             <div class="ev-time"><span>8:00<small>PM</small></span><span class="dim">10:00<small>PM</small></span></div>
+          </li>
+          <li class="event sky">
+            <span class="ev-bar"></span>
+            <div class="ev-body">
+              <p class="ev-title"><a href="https://broward-edu.zoom.us/j/99762211164" target="_blank" rel="noopener">Office Hours · Zoom</a></p>
+              <p class="ev-loc">Every Saturday · Open to all</p>
+            </div>
+            <div class="ev-time"><span>11:00<small>AM</small></span><span class="dim">1:00<small>PM</small></span></div>
           </li>
         </ul>
       </div>

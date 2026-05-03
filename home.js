@@ -164,15 +164,89 @@
     setInterval(tick, 1000);
   }
 
-  /* ---------- iOS-style May 2026 calendar ---------- */
-  // Event days in May 2026 (matching the user's reference + every Thursday LIVE).
-  // Thursdays in May 2026: 7, 14, 21, 28 (red dots = AITV LIVE)
-  // Other events: 1 (graduation), 4-8, 11, 13, 15-16, 18, 20, 22, 25, 27, 29 (gold dots)
-  const eventDays = new Set([1, 4, 5, 6, 7, 8, 11, 13, 14, 15, 16, 18, 20, 21, 22, 25, 27, 28, 29]);
-  const thursdays  = new Set([7, 14, 21, 28]);
-  const todayET    = easternParts(new Date());
-  // Highlight "today" only when the visible month matches.
-  const showToday  = todayET.year === 2026 && todayET.month === 5;
+  /* ---------- iOS-style May 2026 BOOKING calendar ---------- */
+  // Each calendar day can be:
+  //   - past  : grayed, not clickable
+  //   - booked: red bar (existing event), not clickable for booking
+  //   - open  : gold bar, CLICKABLE → mailto:ricktheaiguy@gmail.com prefilled
+  //   - quiet : muted, not clickable (no availability listed)
+  //
+  // Manual availability for May 2026: every Thursday + Friday is OPEN for booking.
+  // (Thursdays are AITV LIVE 8–10pm EST — still bookable for daytime/morning.)
+  // Override per date in `bookedDays` to mark a date red/full.
+  //
+  // Once we connect ricktheaiguy@gmail.com calendar, this list becomes a live feed.
+
+  const BOOKING_EMAIL = "ricktheaiguy@gmail.com";
+  const OFFICE_HOURS_ZOOM = "https://broward-edu.zoom.us/j/99762211164";
+
+  // Days that already have a hard event — red bar, not bookable.
+  // 1 = Graduation, 13 = AI Salon Presents.
+  const bookedDays = new Set([1, 13]);
+
+  // Thursdays in May 2026 = AITV LIVE evenings (red dot).
+  const thursdays = new Set([7, 14, 21, 28]);
+
+  // Saturdays in May 2026 = Office Hours 11am–1pm EST on Zoom.
+  const saturdays = new Set([2, 9, 16, 23, 30]);
+
+  // Currently — ONLY Saturdays (Office Hours) are openly bookable via the live calendar.
+  // All other days route to email until availability changes.
+  function isOpenForBooking(day) {
+    if (bookedDays.has(day)) return false;
+    return saturdays.has(day);
+  }
+
+  const todayET   = easternParts(new Date());
+  const showToday = todayET.year === 2026 && todayET.month === 5;
+  const todayDay  = showToday ? todayET.day : 0;
+
+  function isPast(day) {
+    if (todayET.year > 2026) return true;
+    if (todayET.year < 2026) return false;
+    if (todayET.month > 5)  return true;
+    if (todayET.month < 5)  return false;
+    return day < todayET.day;
+  }
+
+  function dayLongLabel(day) {
+    // Build a long human-readable date label, e.g. "Thursday, May 7, 2026"
+    const date = new Date(Date.UTC(2026, 4, day, 12, 0, 0));
+    return new Intl.DateTimeFormat("en-US", {
+      timeZone: "America/New_York",
+      weekday: "long", year: "numeric", month: "long", day: "numeric",
+    }).format(date);
+  }
+
+  function bookingMailto(day) {
+    const label   = dayLongLabel(day);
+    const subject = encodeURIComponent("Booking inquiry \u2014 " + label);
+    const body    = encodeURIComponent(
+      "Hi Rick,\n\nI'd like to book " + label + ".\n\n" +
+      "Project / topic: \n" +
+      "Preferred time window (EST): \n" +
+      "Format (in-person / virtual / hybrid): \n" +
+      "Budget range: \n" +
+      "Anything else I should know: \n\n" +
+      "\u2014 Sent from rickmccawley.com booking calendar"
+    );
+    return "mailto:" + BOOKING_EMAIL + "?subject=" + subject + "&body=" + body;
+  }
+
+  function bookingHref(day) {
+    // Saturday = Office Hours → Zoom link directly.
+    // Everything else → mailto with prefilled date.
+    if (saturdays.has(day)) return OFFICE_HOURS_ZOOM;
+    return bookingMailto(day);
+  }
+
+  function bookingTooltip(day) {
+    const label = dayLongLabel(day);
+    if (saturdays.has(day)) {
+      return "Office Hours \u2014 " + label + " \u00b7 11am\u20131pm EST \u00b7 Click to join on Zoom";
+    }
+    return "Click to email Rick about " + label;
+  }
 
   function renderMay2026() {
     const grid = document.getElementById("calGrid");
@@ -194,12 +268,33 @@
     }
     for (let d = 1; d <= daysInMonth; d++) {
       const cls = ["cal-day"];
-      if (eventDays.has(d)) cls.push("has-event");
-      if (thursdays.has(d)) cls.push("thu");
-      if (showToday && d === todayET.day) cls.push("today");
-      html += '<div class="' + cls.join(" ") + '">' + d + '</div>';
+      const past   = isPast(d);
+      const booked = bookedDays.has(d);
+      const open   = isOpenForBooking(d) && !past;
+      const isThu  = thursdays.has(d);
+      const isToday = showToday && d === todayDay;
+
+      if (past) cls.push("past");
+      if (booked) cls.push("booked", "has-event");
+      if (isThu)  cls.push("thu");
+      if (isToday) cls.push("today");
+      if (open) cls.push("open", "bookable");
+
+      if (open) {
+        const href   = bookingHref(d);
+        const label  = dayLongLabel(d);
+        const tip    = bookingTooltip(d);
+        const isSat  = saturdays.has(d);
+        if (isSat) cls.push("office-hours");
+        const target = isSat ? ' target="_blank" rel="noopener"' : '';
+        const aria   = isSat ? ("Office Hours on " + label + " \u2014 join on Zoom")
+                             : ("Email Rick about " + label);
+        html += '<a class="' + cls.join(" ") + '" href="' + href + '"' + target + ' aria-label="' + aria + '" title="' + tip + '">' + d + '</a>';
+      } else {
+        html += '<div class="' + cls.join(" ") + '">' + d + '</div>';
+      }
     }
-    // Fill trailing cells to keep a 6-row grid (42 cells total) — optional.
+    // Fill trailing cells to keep a 6-row grid (42 cells total).
     const used = firstDow + daysInMonth;
     const trailing = (7 - (used % 7)) % 7;
     for (let i = 1; i <= trailing; i++) {

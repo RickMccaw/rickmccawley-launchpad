@@ -1099,3 +1099,83 @@ body.four-section { padding-bottom: 120px; }
   .cd-cell { padding: 8px 4px; }
   .playlist-row-4 { grid-template-columns: repeat(2, 1fr); }
 }
+
+/* ===== BOOKING CALENDAR STATES ===== */
+/* Open / bookable day = clickable anchor with gold ring */
+.cal-day.open {
+  cursor: pointer;
+  color: var(--gold);
+  border: 1px solid rgba(242,195,0,.45);
+  background: rgba(242,195,0,.06);
+  text-decoration: none;
+  font-weight: 600;
+}
+.cal-day.open:hover {
+  background: var(--gold);
+  color: var(--blue-flag);
+  border-color: var(--gold);
+  transform: scale(1.05);
+}
+.cal-day.open::after {
+  content: ""; position: absolute; bottom: 3px; left: 50%; transform: translateX(-50%);
+  width: 4px; height: 4px; border-radius: 999px; background: var(--gold);
+}
+.cal-day.open.thu::after { background: #ff0033; }
+
+/* Past days = dim, not clickable */
+.cal-day.past {
+  color: #444;
+  opacity: .55;
+}
+
+/* Booked = solid red bar */
+.cal-day.booked {
+  background: rgba(255,59,48,.10);
+  border: 1px solid rgba(255,59,48,.35);
+  color: #ff8a82;
+}
+.cal-day.booked::after { background: #ff3b30 !important; }
+
+/* Today highlight wins over open/booked colors */
+.cal-day.today {
+  background: var(--orange) !important;
+  color: #fff !important;
+  font-weight: 700;
+  border-color: var(--orange) !important;
+}
+.cal-day.today::after { display: none; }
+
+/* Booking-cell helper text under the grid */
+.cal-legend {
+  display: flex; gap: 12px; flex-wrap: wrap;
+  font-size: 10.5px; color: var(--text-dim);
+  margin-top: 6px;
+}
+.cal-legend .lg { display: inline-flex; align-items: center; gap: 4px; }
+.cal-legend .lg .swatch {
+  width: 8px; height: 8px; border-radius: 999px; display: inline-block;
+}
+.cal-legend .lg.gold .swatch    { background: var(--gold); }
+.cal-legend .lg.red  .swatch    { background: #ff3b30; }
+.cal-legend .lg.orange .swatch  { background: var(--orange); }
+
+/* ===== OFFICE HOURS (Saturdays) — sky blue, click to join Zoom ===== */
+.cal-day.office-hours {
+  color: var(--sky);
+  border-color: rgba(91,192,235,.45);
+  background: rgba(91,192,235,.08);
+}
+.cal-day.office-hours:hover {
+  background: var(--sky);
+  color: var(--blue-flag);
+  border-color: var(--sky);
+}
+.cal-day.office-hours::after { background: var(--sky); }
+
+/* Sky-colored event row */
+.event.sky .ev-bar { background: var(--sky); }
+.event.sky .ev-title a { color: var(--sky); }
+.event.sky .ev-title a:hover { color: var(--gold); text-decoration: underline; }
+
+/* Sky legend dot */
+.cal-legend .lg.sky .swatch { background: var(--sky); }
