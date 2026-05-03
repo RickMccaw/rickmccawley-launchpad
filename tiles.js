@@ -11,7 +11,7 @@ const STAR_MISSIONS = [
   { slug: 'LifeForce',     name: 'LifeForce One',        sub: 'Health · LiV IT!',          img: 'tiles/lifeforce.jpg',     status: 'soon' },
   { slug: 'Rocketship',    name: 'Rocketship for the Mind', sub: 'STEM education',         img: 'tiles/rocketship.jpg',    status: 'soon' },
   { slug: 'CARE',          name: 'CARE',                 sub: 'Disability support app',    img: 'tiles/care.jpg',          status: 'soon' },
-  { slug: 'notebooklm',    name: 'NoteBookLM',           sub: 'Learn · Adapt · Innovate',  img: 'tiles/notebooklm.jpg',    status: 'live' },
+  { slug: 'notebooklm',    name: 'NoteBookLM',           sub: 'Learn · Adapt · Innovate',  img: 'tiles/notebooklm.jpg',    status: 'live', href: 'https://notebooklm.rickmccawley.com', external: true },
   { slug: 'Imagine',       name: 'Imagine Nation',       sub: 'Civic imagination',         img: 'tiles/imaginenation.jpg', status: 'soon' },
 ];
 
@@ -50,8 +50,10 @@ function tileHTML(item) {
         </div>
       </a>`;
   }
+  const linkHref = item.href || `/${item.slug}/`;
+  const linkAttrs = item.external ? ' target="_blank" rel="noopener"' : '';
   return `
-    <a class="tile" href="/${item.slug}/" aria-label="${item.name}">
+    <a class="tile" href="${linkHref}"${linkAttrs} aria-label="${item.name}">
       ${bannerHTML(item)}
       <img class="tile-img" src="${item.img}" alt="${item.name}" loading="lazy" />
       <div class="tile-foot">
@@ -77,8 +79,10 @@ function iconTileHTML(item) {
     item.status === 'beta' ? `<span class="icon-pill">BETA</span>` :
     item.status === 'date' ? `<span class="icon-pill">${item.dateText || 'TBA'}</span>` :
     `<span class="icon-pill">SOON</span>`;
+  const linkHref = item.href || `/${item.slug}/`;
+  const linkAttrs = item.external ? ' target="_blank" rel="noopener"' : '';
   return `
-    <a class="icon-tile" href="/${item.slug}/" aria-label="${item.name}">
+    <a class="icon-tile" href="${linkHref}"${linkAttrs} aria-label="${item.name}">
       <div class="icon-art">
         <img src="${item.img}" alt="${item.name}" loading="lazy" />
         ${statusPill}
