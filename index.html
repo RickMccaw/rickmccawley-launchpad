@@ -38,17 +38,17 @@
     </div>
   </header>
 
-  <!-- ===== SECTION 1 — HERO: portrait | bio | AITV square ===== -->
+  <!-- ===== SECTION 1 — HERO: portrait | name+bio | AITV ===== -->
   <section class="page-section hero-section" id="hero">
-    <h1 class="section-name">RICK McCAWLEY</h1>
     <div class="hero-row">
       <!-- LEFT: round bio portrait (Learn Adapt & Innovate · YOU to the power of ai) -->
       <div class="hero-portrait">
         <img src="./assets/rick-bio-portrait.jpg" alt="Rick McCawley — YOU to the power of ai" />
       </div>
 
-      <!-- MIDDLE: bio copy block -->
+      <!-- MIDDLE: name on top + bio copy underneath -->
       <div class="hero-bio">
+        <h1 class="hero-name">RICK McCAWLEY</h1>
         <p class="hero-lead">
           Pulitzer Prize team photojournalist. 25+ years Senior Professor of
           Graphic Design at Broward College. MFA Graphic Design, MA Photography,
@@ -101,72 +101,146 @@
         <h3 class="cell-title">DIRECT</h3>
         <a class="email-line" href="mailto:ricktheaiguy@gmail.com">ricktheaiguy@gmail.com</a>
         <div class="socials">
-          <a href="https://www.linkedin.com/in/rickmccawley" target="_blank" rel="noopener" class="soc-pill">in <span>LinkedIn</span></a>
-          <a href="https://www.youtube.com/@rmccawley" target="_blank" rel="noopener" class="soc-pill">▶ <span>YouTube</span></a>
-          <a href="https://www.facebook.com/rickmccawley" target="_blank" rel="noopener" class="soc-pill">f <span>Facebook</span></a>
-          <a href="https://ideogram.ai/profile/rmccawley" target="_blank" rel="noopener" class="soc-pill">◆ <span>Ideogram</span></a>
-          <a href="https://x.com/rmccawley" target="_blank" rel="noopener" class="soc-pill">𝕏 <span>X</span></a>
+          <a href="https://www.instagram.com/rickmccawley" target="_blank" rel="noopener" aria-label="Instagram" class="soc-icon ig">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="https://www.facebook.com/rickmccawley" target="_blank" rel="noopener" aria-label="Facebook" class="soc-icon fb">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.7c0-.93.26-1.56 1.59-1.56h1.7V4.27c-.83-.09-1.66-.13-2.49-.13-2.46 0-4.15 1.5-4.15 4.26v2.4H7.5V14h2.65v8h3.35z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/@rmccawley" target="_blank" rel="noopener" aria-label="YouTube" class="soc-icon yt">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M21.6 7.2c-.2-1-1-1.8-2-2C17.7 4.8 12 4.8 12 4.8s-5.7 0-7.6.4c-1 .2-1.8 1-2 2C2 9.1 2 12 2 12s0 2.9.4 4.8c.2 1 1 1.8 2 2 1.9.4 7.6.4 7.6.4s5.7 0 7.6-.4c1-.2 1.8-1 2-2 .4-1.9.4-4.8.4-4.8s0-2.9-.4-4.8zM10 15.5v-7l6 3.5-6 3.5z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/rickmccawley" target="_blank" rel="noopener" aria-label="LinkedIn" class="soc-icon li">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M19 3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2zM8.34 18H5.67v-8.6h2.67V18zM7 8.25a1.55 1.55 0 110-3.1 1.55 1.55 0 010 3.1zM18.34 18h-2.67v-4.18c0-1-.02-2.28-1.39-2.28-1.39 0-1.61 1.09-1.61 2.21V18h-2.67v-8.6h2.56v1.18h.04c.36-.68 1.23-1.39 2.53-1.39 2.7 0 3.21 1.78 3.21 4.1V18z"/></svg>
+          </a>
+          <a href="https://x.com/rmccawley" target="_blank" rel="noopener" aria-label="X" class="soc-icon x">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231zm-1.161 17.52h1.833L7.084 4.126H5.117l11.966 15.644z"/></svg>
+          </a>
         </div>
       </div>
-      <div class="contact-cell">
-        <h3 class="cell-title">CALENDAR · BOOKING</h3>
-        <p class="cell-lead">Mission launches, talks &amp; live broadcasts.</p>
-        <a class="cbtn primary" href="mailto:ricktheaiguy@gmail.com?subject=Booking%20Inquiry">BOOK A DATE →</a>
-        <a class="cbtn ghost" href="https://www.youtube.com/@rmccawley/streams" target="_blank" rel="noopener">LIVE ON AITV ▶</a>
+
+      <!-- iOS-style monthly calendar + upcoming events -->
+      <div class="contact-cell calendar-cell">
+        <div class="cal-head">
+          <h3 class="cell-title">MAY 2026</h3>
+          <a class="cal-today" href="mailto:ricktheaiguy@gmail.com?subject=Booking%20Inquiry">BOOK →</a>
+        </div>
+        <div class="cal-grid" id="calGrid" aria-label="May 2026 calendar"></div>
+        <ul class="event-list">
+          <li class="event red">
+            <span class="ev-bar"></span>
+            <div class="ev-body">
+              <p class="ev-title">Graduation</p>
+              <p class="ev-loc">Amerant Bank Arena</p>
+            </div>
+            <div class="ev-time"><span>12:00<small>PM</small></span><span class="dim">4:00<small>PM</small></span></div>
+          </li>
+          <li class="event gold">
+            <span class="ev-bar"></span>
+            <div class="ev-body">
+              <p class="ev-title">AI Salon Presents</p>
+              <p class="ev-loc">app.mn.co</p>
+            </div>
+            <div class="ev-time"><span>7:00<small>PM</small></span><span class="dim">9:00<small>PM</small></span></div>
+          </li>
+          <li class="event orange">
+            <span class="ev-bar"></span>
+            <div class="ev-body">
+              <p class="ev-title">AITV STARSHIP · LIVE</p>
+              <p class="ev-loc">YouTube · Every Thursday</p>
+            </div>
+            <div class="ev-time"><span>8:00<small>PM</small></span><span class="dim">10:00<small>PM</small></span></div>
+          </li>
+        </ul>
       </div>
+
       <div class="contact-cell">
         <h3 class="cell-title">CONSULTING</h3>
         <p class="rate-big">$2,000<span class="rate-unit">/day</span></p>
         <p class="cell-lead">Or custom retainer · Educator &amp; non-profit rates available.</p>
         <a class="cbtn primary" href="mailto:ricktheaiguy@gmail.com?subject=Consulting%20Inquiry">CUSTOM BOOKING →</a>
+        <a class="cbtn ghost" href="mailto:ricktheaiguy@gmail.com?subject=Booking%20Inquiry">BOOK A DATE →</a>
       </div>
     </div>
   </section>
 
-  <!-- ===== SECTION 4 — AITV STARSHIP: playlists from YouTube ===== -->
+  <!-- ===== SECTION 4 — AITV STARSHIP: live countdown + 4 playlists + Wix YouTube widget ===== -->
   <section class="page-section aitv-section" id="aitv">
     <div class="aitv-head">
       <h2 class="section-title">AITV STARSHIP</h2>
-      <p class="section-sub">Live broadcasts · episodes · playlists — direct from YouTube</p>
-      <div class="aitv-cta-row">
-        <a class="cbtn youtube" href="https://www.youtube.com/@rmccawley?sub_confirmation=1" target="_blank" rel="noopener">▶ SUBSCRIBE</a>
-        <a class="cbtn ghost" href="https://www.youtube.com/@rmccawley/streams" target="_blank" rel="noopener">WATCH LIVE</a>
-        <a class="cbtn ghost" href="https://www.youtube.com/@rmccawley/playlists" target="_blank" rel="noopener">ALL PLAYLISTS</a>
+      <p class="section-sub">Live broadcasts · 4 playlists · every episode — streamed direct from YouTube</p>
+    </div>
+
+    <!-- LIVE BROADCAST countdown card (priority slot) -->
+    <div class="aitv-live-card" id="liveCard">
+      <div class="live-thumb">
+        <img src="./assets/aitv-starship.jpg" alt="AITV Starship LIVE" />
+        <span class="live-pulse" id="livePulse"><span class="dot"></span><span class="label" id="liveLabel">UPCOMING LIVE</span></span>
+      </div>
+      <div class="live-body">
+        <p class="live-eyebrow">LIVE BROADCAST · EVERY THURSDAY 8–10PM EST</p>
+        <h3 class="live-title">AITV STARSHIP — LIVE NEXT</h3>
+        <p class="live-when" id="liveWhen">Calculating next broadcast…</p>
+        <div class="countdown" id="countdown" role="timer" aria-live="polite">
+          <span class="cd-cell"><strong id="cdDays">0</strong><small>DAYS</small></span>
+          <span class="cd-cell"><strong id="cdHours">00</strong><small>HRS</small></span>
+          <span class="cd-cell"><strong id="cdMin">00</strong><small>MIN</small></span>
+          <span class="cd-cell"><strong id="cdSec">00</strong><small>SEC</small></span>
+        </div>
+        <div class="live-cta-row">
+          <a class="cbtn youtube" id="liveBtn" href="https://www.youtube.com/@rmccawley/streams" target="_blank" rel="noopener">▶ WATCH ON YOUTUBE</a>
+          <a class="cbtn ghost" href="https://www.youtube.com/@rmccawley?sub_confirmation=1" target="_blank" rel="noopener">SUBSCRIBE</a>
+          <a class="cbtn ghost" href="webcal://www.google.com/calendar/render?action=TEMPLATE&text=AITV%20Starship%20LIVE&details=Live%20on%20YouTube%20%40rmccawley&dates=20260507T000000Z%2F20260507T020000Z&recur=RRULE%3AFREQ%3DWEEKLY%3BBYDAY%3DTH">ADD TO CALENDAR</a>
+        </div>
       </div>
     </div>
-    <div class="playlist-row">
-      <a class="playlist-card" href="https://www.youtube.com/@rmccawley/streams" target="_blank" rel="noopener">
-        <div class="playlist-thumb live">
-          <span class="live-dot">●</span> LIVE
+
+    <!-- 4 Playlists — each links to its YouTube playlist -->
+    <div class="playlist-row playlist-row-4">
+      <a class="playlist-card" href="https://www.youtube.com/@rmccawley/playlists?view=1&sort=dd&shelf_id=0" target="_blank" rel="noopener">
+        <div class="playlist-thumb thumb-interviews">
+          <span class="thumb-count">5 videos</span>
         </div>
-        <p class="pl-title">LIVE BROADCASTS</p>
-        <p class="pl-sub">Studio · field · special events</p>
+        <p class="pl-title">INTERVIEWS</p>
+        <p class="pl-sub">Where we talk with some of the most interesting humans in AI.</p>
       </a>
-      <a class="playlist-card" href="https://www.youtube.com/@rmccawley/videos" target="_blank" rel="noopener">
-        <div class="playlist-thumb thumb-1"></div>
-        <p class="pl-title">EPISODES</p>
-        <p class="pl-sub">Full-length conversations</p>
+      <a class="playlist-card" href="https://www.youtube.com/@rmccawley/playlists?view=1&sort=dd&shelf_id=0" target="_blank" rel="noopener">
+        <div class="playlist-thumb thumb-northstar">
+          <span class="thumb-count">39 videos</span>
+        </div>
+        <p class="pl-title">NORTH STAR PROJECTS</p>
+        <p class="pl-sub">Where we're building the 18 ecosystems — mission by mission.</p>
       </a>
-      <a class="playlist-card" href="https://www.youtube.com/@rmccawley/videos" target="_blank" rel="noopener">
-        <div class="playlist-thumb thumb-2"></div>
-        <p class="pl-title">SHORTS</p>
-        <p class="pl-sub">Quick takes · 60 sec</p>
+      <a class="playlist-card" href="https://www.youtube.com/@rmccawley/playlists?view=1&sort=dd&shelf_id=0" target="_blank" rel="noopener">
+        <div class="playlist-thumb thumb-tools">
+          <span class="thumb-count">30:38</span>
+        </div>
+        <p class="pl-title">MISSION TOOLS</p>
+        <p class="pl-sub">Deep dives into the AI tools powering every project.</p>
       </a>
-      <a class="playlist-card" href="https://www.youtube.com/@rmccawley/videos" target="_blank" rel="noopener">
-        <div class="playlist-thumb thumb-3"></div>
-        <p class="pl-title">MISSION DROPS</p>
-        <p class="pl-sub">Project launches</p>
+      <a class="playlist-card" href="https://www.youtube.com/@rmccawley/playlists?view=1&sort=dd&shelf_id=0" target="_blank" rel="noopener">
+        <div class="playlist-thumb thumb-podcast">
+          <span class="thumb-count">39 episodes</span>
+        </div>
+        <p class="pl-title">EXPERIMENTAL PODCAST</p>
+        <p class="pl-sub">Long-form conversations with Rick &amp; Brandon Tidd.</p>
       </a>
-      <a class="playlist-card" href="https://www.youtube.com/@rmccawley/videos" target="_blank" rel="noopener">
-        <div class="playlist-thumb thumb-4"></div>
-        <p class="pl-title">ARTS &amp; MEDIA</p>
-        <p class="pl-sub">Music · film · books</p>
-      </a>
-      <a class="playlist-card" href="https://www.youtube.com/@rmccawley/playlists" target="_blank" rel="noopener">
-        <div class="playlist-thumb thumb-all">▶</div>
-        <p class="pl-title">ALL PLAYLISTS</p>
-        <p class="pl-sub">View on YouTube</p>
-      </a>
+    </div>
+
+    <!-- Channel widget — vertical thumbnail list of latest uploads -->
+    <div class="yt-widget-wrap">
+      <h3 class="yt-widget-title">LATEST UPLOADS</h3>
+      <p class="yt-widget-sub">Pulled live from <a href="https://www.youtube.com/@rmccawley" target="_blank" rel="noopener">youtube.com/@rmccawley</a></p>
+      <div class="yt-widget-frame">
+        <iframe
+          src="https://www.youtube.com/embed?listType=user_uploads&list=rmccawley"
+          title="AITV Starship — latest uploads"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          loading="lazy"></iframe>
+      </div>
+      <a class="cbtn youtube" href="https://www.youtube.com/@rmccawley/videos" target="_blank" rel="noopener">VIEW ALL VIDEOS ON YOUTUBE →</a>
     </div>
   </section>
 
@@ -187,5 +261,6 @@
   </footer>
 
   <script src="./tiles.js"></script>
+  <script src="./home.js"></script>
 </body>
 </html>
