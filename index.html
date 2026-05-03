@@ -5,16 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#262626" />
   <title>Rick McCawley — Imagine a World</title>
-  <meta name="description" content="Rick McCawley — Senior Professor of Design, Author, Photographer. CEO of Imagine a World to the Power of AI. 18 ecosystems plus AITV Starship — Star Missions that change the world, Arts & Media that change the heart." />
+  <meta name="description" content="Rick McCawley — Senior Professor of Design, Author, Photographer. CEO of Imagine a World to the Power of AI. Star Missions that change the world. Arts & Media that change the heart." />
 
-  <!-- Open Graph -->
   <meta property="og:title" content="Rick McCawley — Imagine a World" />
-  <meta property="og:description" content="18 ecosystems + AITV Starship. Star Missions that change the world. Arts & Media that change the heart." />
+  <meta property="og:description" content="Star Missions that change the world. Arts & Media that change the heart." />
   <meta property="og:image" content="https://www.rickmccawley.com/assets/rick-portrait-jacket.jpg" />
   <meta property="og:url" content="https://www.rickmccawley.com/" />
   <meta property="og:type" content="website" />
 
-  <!-- Fonts: Bebas Neue (display) + Inter (body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -22,160 +20,96 @@
   <link rel="stylesheet" href="./style.css" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23262626'/%3E%3Ctext x='16' y='23' font-family='Bebas Neue,Impact' font-size='20' fill='%23F2C300' text-anchor='middle' font-weight='700'%3ERM%3C/text%3E%3C/svg%3E" />
 </head>
-<body>
+<body class="home-grid">
 
-  <!-- ===== TOP BANNER (locked) ===== -->
+  <!-- ===== TOP BANNER ===== -->
   <header class="top-banner" role="banner">
     <div class="brand-row">
       <a href="/" class="brand-mark" aria-label="Rick McCawley — Home">
         <span class="brand-rm">RM</span>
-        <span class="brand-name">RICK McCAWLEY</span>
       </a>
-      <nav class="top-nav" aria-label="Primary">
-        <a href="#missions">MISSIONS</a>
-        <a href="#arts">ARTS &amp; MEDIA</a>
-        <a href="/aitv/">AITV STARSHIP</a>
-        <a href="#contact">CONTACT RICK</a>
-      </nav>
-      <div class="top-social" aria-label="Social">
-        <a href="https://bit.ly/m/RickMcCawley" target="_blank" rel="noopener" aria-label="Linktree" class="soc">⊕</a>
-        <a href="https://www.youtube.com/@rmccawley" target="_blank" rel="noopener" aria-label="YouTube" class="soc">▶</a>
-        <a href="mailto:ricktheaiguy@gmail.com" aria-label="Email" class="soc">✉</a>
+      <div class="brand-center">
+        <h1 class="brand-title">RICK McCAWLEY</h1>
+        <p class="brand-sub"><span class="iaw">IMAGINE A WORLD</span> · <span class="tag">SYSTEMS FOR HOPE. STORIES FOR THE SOUL.</span></p>
       </div>
+      <a class="cta-contact" href="#contact">CONTACT RICK →</a>
     </div>
   </header>
 
-  <!-- ===== HERO ROW (3 columns: portrait | bio | AITV) ===== -->
-  <section class="hero3" id="bio">
-    <div class="hero3-wrap">
-
-      <!-- LEFT: Portrait → Contact Rick -->
-      <a class="hero3-col hero3-portrait" href="#contact" aria-label="Meet Rick McCawley">
-        <div class="hero3-card">
-          <img src="./assets/rick-portrait-jacket.jpg" alt="Rick McCawley portrait" />
-          <span class="hero3-tag">MEET RICK →</span>
-        </div>
-      </a>
-
-      <!-- MIDDLE: Bio + Imagine a World intro -->
-      <div class="hero3-col hero3-bio">
-        <p class="eyebrow">Imagine a World</p>
-        <h1 class="bio-name">RICK McCAWLEY</h1>
-        <p class="bio-tagline">Systems for hope. Stories for the soul.</p>
-        <div class="bio-titles">
-          <span>Senior Professor of Design</span>
-          <span>Human-Centric AI Thinker</span>
-          <span>Author &amp; Photographer</span>
-        </div>
-        <p class="bio-lead">Pulitzer Prize team photojournalist. 25+ years Senior Professor of Graphic Design at Broward College. MFA Graphic Design, MA Photography, BA Political Science from the University of Florida. 50+ books, 100+ copyrighted musical works, 3,000+ dives in 120+ countries.</p>
-        <p class="bio-lead">As CEO of <strong>Imagine a World to the Power of AI, LLC</strong>, Rick channels a lifetime of creative firepower into <strong>18 ecosystems</strong> — Star Missions that change the world, and Arts &amp; Media that change the heart.</p>
-        <a class="cbtn primary hero3-cta" href="#contact">CONTACT RICK · BOOKING · CONSULTING</a>
-      </div>
-
-      <!-- RIGHT: AITV Starship → /aitv -->
-      <a class="hero3-col hero3-aitv" href="/aitv/" aria-label="AITV Starship channel">
-        <div class="hero3-card aitv-card">
-          <img src="./assets/aitv-starship.jpg" alt="AITV Starship — Rick McCawley & Brandon Tidd" />
-          <div class="aitv-meta">
-            <p class="eyebrow gold">Live Broadcast</p>
-            <h3 class="aitv-title">AITV STARSHIP</h3>
-            <p class="aitv-sub">The flagship channel — publicity for the entire empire.</p>
-            <span class="hero3-tag">VISIT CHANNEL →</span>
-          </div>
-        </div>
-      </a>
-
-    </div>
-  </section>
-
-  <!-- ===== STAR MISSIONS GRID ===== -->
-  <section class="grid-section star" id="missions">
-    <header class="grid-header">
+  <!-- ===== TWO GRIDS — side by side, above the fold ===== -->
+  <main class="home-main">
+    <section class="grid-col" id="missions">
       <h2 class="grid-title">STAR MISSIONS</h2>
-      <p class="grid-sub">Foundation · Technology, education &amp; social impact that change the world</p>
-    </header>
-    <div class="tile-grid" id="star-grid"></div>
-  </section>
-
-  <!-- ===== ARTS & MEDIA GRID ===== -->
-  <section class="grid-section arts" id="arts">
-    <header class="grid-header">
+      <div class="tile-grid tight" id="star-grid"></div>
+    </section>
+    <section class="grid-col" id="arts">
       <h2 class="grid-title">ARTS &amp; MEDIA</h2>
-      <p class="grid-sub">Imagine a World Production · Music, photography, film &amp; story worlds that change the heart</p>
-    </header>
-    <div class="tile-grid" id="arts-grid"></div>
-  </section>
+      <div class="tile-grid tight" id="arts-grid"></div>
+    </section>
+  </main>
 
-  <!-- ===== CONTACT RICK (anchored on home) ===== -->
-  <section class="contact" id="contact">
-    <div class="contact-wrap">
-      <p class="eyebrow gold">Imagine a World</p>
-      <h2 class="grid-title">CONTACT RICK</h2>
-      <p class="contact-lead">Booking · Keynotes · Consulting · Calendar of Events · Press &amp; Licensing.<br/>One inbox for everything: <strong>ricktheaiguy@gmail.com</strong></p>
-
-      <div class="contact-grid">
-        <div class="contact-card">
-          <h3>BOOKING &amp; KEYNOTES</h3>
-          <p>Speaking engagements, workshops, conferences. Human-centered AI for educators, leaders, and creative teams.</p>
-          <a class="cbtn primary" href="mailto:ricktheaiguy@gmail.com?subject=Booking%20%2F%20Keynote%20Inquiry">EMAIL TO BOOK</a>
-        </div>
-        <div class="contact-card">
-          <h3>CONSULTING</h3>
-          <p>Advisory and strategy on human-centered design empowered by AI. Curriculum, brand systems, and product direction.</p>
-          <a class="cbtn" href="mailto:ricktheaiguy@gmail.com?subject=Consulting%20Inquiry">START A CONVERSATION</a>
-        </div>
-        <div class="contact-card">
-          <h3>CALENDAR OF EVENTS</h3>
-          <p>Live broadcasts, talks, screenings, and Star Mission launches. Subscribe on AITV Starship for the schedule.</p>
-          <a class="cbtn" href="https://www.youtube.com/@rmccawley" target="_blank" rel="noopener">VIEW ON AITV ▶</a>
-        </div>
-        <div class="contact-card">
-          <h3>PRESS &amp; LICENSING</h3>
-          <p>Photography, music, books, and brand licensing for the 18 ecosystems. Press kit available on request.</p>
-          <a class="cbtn" href="mailto:ricktheaiguy@gmail.com?subject=Press%20%2F%20Licensing">REQUEST PRESS KIT</a>
+  <!-- ===== CONTACT RICK (anchored under grids) ===== -->
+  <section class="contact-block" id="contact">
+    <div class="contact-row">
+      <div class="contact-cell">
+        <h3 class="cell-title">CONTACT RICK</h3>
+        <a class="email-line" href="mailto:ricktheaiguy@gmail.com">ricktheaiguy@gmail.com</a>
+        <div class="socials">
+          <a href="https://www.linkedin.com/in/rickmccawley" target="_blank" rel="noopener" aria-label="LinkedIn" class="soc-pill">in <span>LinkedIn</span></a>
+          <a href="https://www.youtube.com/@rmccawley" target="_blank" rel="noopener" aria-label="YouTube" class="soc-pill">▶ <span>YouTube</span></a>
+          <a href="https://www.facebook.com/rickmccawley" target="_blank" rel="noopener" aria-label="Facebook" class="soc-pill">f <span>Facebook</span></a>
+          <a href="https://ideogram.ai/profile/rmccawley" target="_blank" rel="noopener" aria-label="Ideogram" class="soc-pill">◆ <span>Ideogram</span></a>
+          <a href="https://x.com/rmccawley" target="_blank" rel="noopener" aria-label="X" class="soc-pill">𝕏 <span>X</span></a>
         </div>
       </div>
-
-      <div class="contact-rates">
-        <h3>PRICING STRUCTURE</h3>
-        <div class="rate-row">
-          <div class="rate"><span class="rate-label">Keynote · 60 min</span><span class="rate-value">From $7,500</span></div>
-          <div class="rate"><span class="rate-label">Half-day Workshop</span><span class="rate-value">From $12,000</span></div>
-          <div class="rate"><span class="rate-label">Full-day Workshop</span><span class="rate-value">From $18,000</span></div>
-          <div class="rate"><span class="rate-label">Consulting · Hourly</span><span class="rate-value">From $450</span></div>
-          <div class="rate"><span class="rate-label">Consulting · Retainer</span><span class="rate-value">Custom</span></div>
-          <div class="rate"><span class="rate-label">Educators &amp; Non-profit</span><span class="rate-value">Reduced</span></div>
-        </div>
-        <p class="rate-fine">Travel and production billed at cost. Educator and non-profit rates available — please ask.</p>
+      <div class="contact-cell">
+        <h3 class="cell-title">CALENDAR · BOOKING</h3>
+        <p class="cell-lead">Mission launches, talks &amp; live broadcasts.</p>
+        <a class="cbtn primary" href="mailto:ricktheaiguy@gmail.com?subject=Booking%20Inquiry">BOOK A DATE →</a>
+        <a class="cbtn ghost" href="https://www.youtube.com/@rmccawley/streams" target="_blank" rel="noopener">LIVE ON AITV ▶</a>
       </div>
-
-      <div class="contact-buttons">
-        <a class="cbtn primary" href="mailto:ricktheaiguy@gmail.com">EMAIL · ricktheaiguy@gmail.com</a>
-        <a class="cbtn" href="https://bit.ly/m/RickMcCawley" target="_blank" rel="noopener">LINKTREE · bit.ly/m/RickMcCawley</a>
-        <a class="cbtn" href="https://www.youtube.com/@rmccawley" target="_blank" rel="noopener">YOUTUBE · @rmccawley</a>
+      <div class="contact-cell">
+        <h3 class="cell-title">CONSULTING</h3>
+        <p class="rate-big">$2,000<span class="rate-unit">/day</span></p>
+        <p class="cell-lead">Or custom retainer · Educator &amp; non-profit rates available.</p>
+        <a class="cbtn primary" href="mailto:ricktheaiguy@gmail.com?subject=Consulting%20Inquiry">CUSTOM BOOKING →</a>
       </div>
     </div>
   </section>
 
-  <!-- ===== BOTTOM BANNER (locked, mirrors top) ===== -->
+  <!-- ===== BOTTOM BANNER ===== -->
   <footer class="bottom-banner" role="contentinfo">
     <div class="brand-row">
-      <a href="/" class="brand-mark"><span class="brand-rm">RM</span><span class="brand-name small">RICK McCAWLEY</span></a>
-      <nav class="bot-nav" aria-label="Footer">
-        <a href="#missions">MISSIONS</a>
-        <a href="#arts">ARTS &amp; MEDIA</a>
-        <a href="/aitv/">AITV STARSHIP</a>
-        <a href="#contact">CONTACT RICK</a>
-      </nav>
-      <div class="top-social" aria-label="Social">
-        <a href="https://bit.ly/m/RickMcCawley" target="_blank" rel="noopener" aria-label="Linktree" class="soc">⊕</a>
-        <a href="https://www.youtube.com/@rmccawley" target="_blank" rel="noopener" aria-label="YouTube" class="soc">▶</a>
-        <a href="mailto:ricktheaiguy@gmail.com" aria-label="Email" class="soc">✉</a>
-      </div>
+      <a href="/" class="brand-mark"><span class="brand-rm">RM</span></a>
+      <p class="legal">© 2026 Imagine a World to the Power of AI, LLC · Star Missions · Arts &amp; Media · AITV Starship</p>
+      <a class="cbtn small" href="/aitv/">AITV STARSHIP ▶</a>
     </div>
-    <p class="legal">© 2026 Imagine a World to the Power of AI, LLC · Imagine a World Foundation · Star Missions · Imagine a World Production · AITV Starship</p>
   </footer>
 
+  <!-- ===== CHAT BUBBLE (lower-right) ===== -->
+  <button class="chat-bubble" id="chatBubble" aria-label="Chat with Rick's AI" type="button">
+    <span class="chat-icon">💬</span>
+    <span class="chat-label">Ask Rick AI</span>
+  </button>
+  <div class="chat-panel" id="chatPanel" hidden>
+    <div class="chat-head">
+      <strong>Rick AI</strong>
+      <button class="chat-close" id="chatClose" aria-label="Close chat" type="button">×</button>
+    </div>
+    <div class="chat-body">
+      <p>Hi — I'm Rick's AI helper. Ask me about Star Missions, booking, or how to get involved.</p>
+      <p class="chat-hint">For now: <a href="mailto:ricktheaiguy@gmail.com">email Rick directly</a> and we'll wire me up shortly.</p>
+    </div>
+  </div>
+
   <script src="./tiles.js"></script>
+  <script>
+    // Chat bubble toggle
+    const cb = document.getElementById('chatBubble');
+    const cp = document.getElementById('chatPanel');
+    const cc = document.getElementById('chatClose');
+    cb && cb.addEventListener('click', () => { cp.hidden = !cp.hidden; });
+    cc && cc.addEventListener('click', () => { cp.hidden = true; });
+  </script>
 </body>
 </html>

@@ -516,3 +516,219 @@ a:hover { color: var(--gold); }
   .contact-grid { grid-template-columns: 1fr; }
   .rate-row { grid-template-columns: 1fr; }
 }
+
+/* ============================================================
+   HOME — TIGHT GRID LAYOUT (above-the-fold, no scroll)
+   Body class: .home-grid
+   ============================================================ */
+body.home-grid { padding-top: 0; padding-bottom: 0; }
+body.home-grid .top-banner,
+body.home-grid .bottom-banner { position: sticky; }
+body.home-grid .top-banner { top: 0; }
+body.home-grid .bottom-banner { bottom: 0; }
+
+/* Top banner: RM logo · centered title block · Contact CTA */
+body.home-grid .top-banner .brand-row {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 24px;
+}
+body.home-grid .brand-mark { gap: 0; }
+body.home-grid .brand-rm {
+  width: 44px; height: 44px; font-size: 22px;
+}
+.brand-center {
+  text-align: center;
+  display: flex; flex-direction: column; align-items: center;
+  gap: 2px;
+  /* Position name attached to top yellow line */
+  margin-top: -2px;
+}
+.brand-title {
+  font-family: var(--font-display);
+  letter-spacing: .04em;
+  font-size: clamp(28px, 3.6vw, 44px);
+  color: var(--gold);
+  margin: 0;
+  line-height: .95;
+}
+.brand-sub {
+  margin: 0; font-size: clamp(10px, 1.05vw, 12.5px);
+  letter-spacing: .14em;
+  color: var(--text-dim);
+}
+.brand-sub .iaw {
+  color: var(--gold); font-family: var(--font-display);
+  letter-spacing: .18em;
+}
+.brand-sub .tag {
+  color: var(--sky); font-family: var(--font-display);
+  letter-spacing: .12em;
+}
+.cta-contact {
+  font-family: var(--font-display); letter-spacing: .06em;
+  font-size: 14px; padding: 9px 18px; border-radius: 999px;
+  background: var(--gold); color: var(--blue-flag);
+  border: 2px solid var(--gold);
+  white-space: nowrap;
+  transition: all .2s ease;
+}
+.cta-contact:hover { background: var(--blue-flag); color: var(--gold); }
+
+/* Main: two grids side-by-side */
+.home-main {
+  max-width: 1400px; margin: 0 auto;
+  padding: 18px 18px 12px;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+.grid-col { display: flex; flex-direction: column; gap: 10px; }
+.grid-col .grid-title {
+  font-family: var(--font-display); letter-spacing: .06em;
+  font-size: clamp(28px, 3.4vw, 40px);
+  color: var(--gold);
+  margin: 0; text-align: center; line-height: 1;
+}
+/* Tight 3x3 grid: each cell square, gap small */
+.tile-grid.tight {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  width: 100%;
+  min-width: 0;
+}
+.grid-col { min-width: 0; }
+
+/* Contact block: 3 cells in one row, snug */
+.contact-block {
+  background: var(--gray-90);
+  border-top: 1px solid var(--gray-line);
+  padding: 22px 18px 26px;
+}
+.contact-row {
+  max-width: 1400px; margin: 0 auto;
+  display: grid; grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 22px;
+}
+.contact-cell {
+  background: var(--gray-card);
+  border: 1px solid var(--gray-line);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.cell-title {
+  font-family: var(--font-display); letter-spacing: .1em;
+  color: var(--gold); font-size: 18px; margin: 0;
+}
+.cell-lead { color: var(--text-dim); font-size: 13px; margin: 0; }
+.email-line {
+  color: var(--gold); font-weight: 600;
+  font-size: 16px;
+  word-break: break-all;
+}
+.socials { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+.soc-pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--font-display); letter-spacing: .06em;
+  font-size: 12px; color: var(--text);
+  padding: 6px 12px; border-radius: 999px;
+  background: rgba(0,0,0,.3); border: 1px solid var(--gray-line);
+  transition: all .2s ease;
+}
+.soc-pill span { font-size: 12px; }
+.soc-pill:hover {
+  background: var(--gold); color: var(--blue-flag); border-color: var(--gold);
+}
+.rate-big {
+  font-family: var(--font-display); letter-spacing: .02em;
+  color: var(--gold); font-size: 44px; margin: 4px 0 0; line-height: 1;
+}
+.rate-big .rate-unit {
+  font-size: 18px; color: var(--text-dim); letter-spacing: .08em;
+}
+.cbtn.ghost {
+  background: transparent; color: var(--gold);
+  border: 2px solid var(--gold);
+}
+.cbtn.ghost:hover { background: var(--gold); color: var(--blue-flag); }
+
+/* Bottom banner (home only) — minimal, single row */
+body.home-grid .bottom-banner .brand-row {
+  display: grid; grid-template-columns: auto 1fr auto;
+  align-items: center; padding: 8px 24px;
+}
+body.home-grid .bottom-banner .legal { margin: 0; text-align: center; padding: 0; font-size: 11px; }
+
+/* ============================================================
+   CHAT BUBBLE (lower-right, fixed)
+   ============================================================ */
+.chat-bubble {
+  position: fixed; right: 22px; bottom: 78px;
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 12px 18px; border-radius: 999px;
+  background: var(--gold); color: var(--blue-flag);
+  font-family: var(--font-display); letter-spacing: .06em; font-size: 14px;
+  border: 2px solid var(--gold);
+  box-shadow: 0 12px 28px rgba(0,0,0,.45), 0 0 0 1px rgba(0,0,0,.1);
+  cursor: pointer; z-index: 200;
+  transition: all .2s ease;
+}
+.chat-bubble:hover { transform: translateY(-2px); background: #fff; }
+.chat-icon { font-size: 18px; }
+.chat-panel {
+  position: fixed; right: 22px; bottom: 138px;
+  width: min(340px, calc(100vw - 44px));
+  background: var(--gray-card); border: 1px solid var(--gold);
+  border-radius: var(--radius);
+  box-shadow: 0 24px 60px rgba(0,0,0,.6);
+  z-index: 200;
+  overflow: hidden;
+}
+.chat-head {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 12px 16px;
+  background: var(--blue-flag); color: var(--gold);
+  font-family: var(--font-display); letter-spacing: .08em;
+}
+.chat-close {
+  background: transparent; color: var(--gold);
+  border: none; font-size: 22px; cursor: pointer; line-height: 1;
+}
+.chat-body { padding: 14px 16px; }
+.chat-body p { margin: 0 0 8px; font-size: 13px; color: var(--text); }
+.chat-body .chat-hint { color: var(--text-dim); font-size: 12px; }
+.chat-body a { color: var(--gold); }
+
+/* ============================================================
+   RESPONSIVE — tablet stack the two grids if needed
+   ============================================================ */
+@media (max-width: 1100px) {
+  .home-main { gap: 14px; }
+  body.home-grid .top-banner .brand-row { padding: 8px 16px; gap: 10px; }
+}
+@media (max-width: 860px) {
+  .home-main {
+    grid-template-columns: 1fr;
+  }
+  .contact-row { grid-template-columns: 1fr; }
+  .brand-sub { font-size: 10.5px; }
+  .cta-contact { padding: 7px 12px; font-size: 12px; }
+  /* Don't sticky the bottom banner on mobile — it overlaps the last grid row */
+  body.home-grid .bottom-banner { position: static; }
+}
+@media (max-width: 540px) {
+  .tile-grid.tight { gap: 6px; }
+  .chat-label { display: none; }
+  .chat-bubble { padding: 12px; }
+}
+
+/* Override default .tile-banner so logos read clearly */
+.tile-grid.tight .tile { aspect-ratio: 1/1; }
+.tile-grid.tight .tile-banner { font-size: 9px; padding: 3px 6px; letter-spacing: .06em; }
+.tile-grid.tight .tile-banner .pill { font-size: 9px; padding: 0 5px; }
+.tile-grid.tight .tile-foot { padding: 28px 8px 6px; }
+.tile-grid.tight .tile-name { font-size: 13px; }
+.tile-grid.tight .tile-sub { font-size: 9.5px; }
